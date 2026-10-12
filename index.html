@@ -20,7 +20,7 @@
     :root {
       --bg: #1a1a18; --surface: #242422; --surface2: #2c2c2a;
       --border: #3a3a36; --border-strong: #4a4a46;
-      --text: #f0efe8; --text2: #a0a09a; --text3: #606058;
+      --text: #f0efe8; --text2: #a0a09a; --text3: #8a8a82;
       --accent: #4f83f0; --accent-bg: #1e2a4a; --accent-text: #93b4f8;
       --success: #4ade80; --success-bg: #0f2a1a; --success-border: #166534;
       --danger: #f87171; --danger-bg: #2a1010; --danger-border: #991b1b;
@@ -37,17 +37,17 @@
   p { font-size: 14px; color: var(--text2); line-height: 1.6; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
   .btn { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; font-weight: 500; padding: 9px 18px; border-radius: var(--radius); border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); transition: all 0.15s; text-decoration: none; }
-  .btn:hover { background: var(--surface2); border-color: var(--border-strong); }
+  .btn:hover { background: var(--surface2); }
   .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:hover { background: var(--accent); opacity: 0.9; }
   .btn-sm { padding: 6px 12px; font-size: 13px; }
   .btn-danger { border-color: var(--danger); color: var(--danger); }
   .btn-danger:hover { background: var(--danger-bg); }
-  .flex { display: flex; align-items: center; }
   .flex-between { display: flex; align-items: center; justify-content: space-between; }
   .flex-gap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
   .mt-1 { margin-top: 0.5rem; } .mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 1.5rem; }
   .mb-1 { margin-bottom: 0.5rem; } .mb-2 { margin-bottom: 1rem; }
   .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; letter-spacing: 0.02em; }
@@ -55,26 +55,19 @@
   .badge-success { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-border); }
   .badge-danger { background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
   .badge-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning-border); }
-  .badge-neutral { background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
   .stat-card { background: var(--surface2); border-radius: var(--radius); padding: 1rem; text-align: center; }
   .stat-num { font-size: 28px; font-weight: 700; color: var(--text); }
   .stat-label { font-size: 12px; color: var(--text3); margin-top: 2px; }
   .progress-wrap { background: var(--surface2); border-radius: 4px; height: 6px; overflow: hidden; }
   .progress-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width 0.4s ease; }
-  .answer-btn { display: block; width: 100%; text-align: left; cursor: pointer; font-size: 14px; padding: 12px 16px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); color: var(--text); margin-bottom: 8px; transition: all 0.15s; line-height: 1.5; }
+  .answer-btn { display: block; width: 100%; text-align: left; cursor: pointer; font-size: 14px; padding: 12px 16px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); color: var(--text); margin-bottom: 8px; transition: all 0.15s; line-height: 1.5; font-family: inherit; }
   .answer-btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-bg); }
   .answer-btn.correct { background: var(--success-bg); border-color: var(--success-border); color: var(--success); font-weight: 500; }
   .answer-btn.wrong { background: var(--danger-bg); border-color: var(--danger-border); color: var(--danger); }
-  .answer-btn.reveal { background: var(--success-bg); border-color: var(--success-border); color: var(--success); }
   .answer-btn.selected-multi { border-color: var(--accent); background: var(--accent-bg); }
   .feedback { border-radius: var(--radius); padding: 12px 16px; font-size: 13px; line-height: 1.6; margin-top: 0.75rem; }
   .feedback-correct { background: var(--success-bg); border: 1px solid var(--success-border); color: var(--success); }
   .feedback-wrong { background: var(--danger-bg); border: 1px solid var(--danger-border); color: var(--danger); }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
-  .cat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-  .cat-row:last-child { border-bottom: none; }
-  .bar-wrap { flex: 1; margin: 0 12px; background: var(--surface2); border-radius: 3px; height: 8px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
   .missed-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
   .missed-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
   .missed-ans { font-size: 13px; margin-bottom: 4px; }
@@ -94,6 +87,7 @@
   .logo { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
   .submit-multi { margin-top: 4px; }
   .error-inline { font-size: 12px; color: var(--danger); margin-top: 4px; display: none; }
+  .footnote { font-size: 12px; color: var(--text3); line-height: 1.6; margin-top: 1.5rem; }
 </style>
 </head>
 <body>
@@ -103,7 +97,7 @@
 <div id="screen-home" class="screen active">
   <div class="logo">Anaplan Certification</div>
   <h1>SA Practice Exam</h1>
-  <p class="mb-2">Professional Solution Architect · 45 questions · 180 minutes</p>
+  <p class="mb-2">Professional Solution Architect · 45 questions per exam · 180 minutes</p>
   <div class="grid-2 mt-3 mb-2" id="exam-cards"></div>
   <div class="card mt-2">
     <h3>Your progress</h3>
@@ -123,6 +117,7 @@
       <button class="btn btn-sm btn-danger mt-2" onclick="clearHistory()">Clear all history</button>
     </div>
   </div>
+  <div class="footnote">Answer options are shuffled on every attempt. Explanations cite Planual rule numbers, Anapedia (help.anaplan.com) and the BA Practice Guidelines (September 2025). Planual rules and Anapedia pages change over time, so confirm against the live pages before relying on a detail.</div>
 </div>
 
 <!-- EXAM -->
@@ -184,573 +179,1251 @@
 </div>
 
 <script>
+// Study links point to pages found on support.anaplan.com, help.anaplan.com and community.anaplan.com.
 const CATS = {
-  alm:      { label: 'Application Lifecycle Management', url: 'https://help.anaplan.com/application-lifecycle-management-overview-61a1b5c1-5c56-4cf4-8553-4c6a9a83b0ea' },
+  alm:      { label: 'Application Lifecycle Management', url: 'https://help.anaplan.com/how-application-lifecycle-management-supports-the-development-lifecycle-aa369576-4135-4a3e-8636-1a942c28feaa' },
   taw:      { label: 'The Anaplan Way', url: 'https://community.anaplan.com/kb/articles/23242-discover-the-anaplan-way-project-methodology' },
-  modeling: { label: 'Modeling best practices', url: 'https://support.anaplan.com/planual-5731dc37-317a-49fa-a5ff-7fc3926972de' },
-  datamgmt: { label: 'Data management & integration', url: 'https://help.anaplan.com/import-data-7b5c1b0e-e0b3-4e6a-8a3e-7f9c2d1a5b6e' },
-  datamodel:{ label: 'Data modeling', url: 'https://help.anaplan.com/lists-d8b3c2a1-5f4e-4b8a-9c7d-2e1f6a3b4c5d' },
-  design:   { label: 'Model design (DISCO)', url: 'https://community.anaplan.com/kb/articles/33530-oeg-best-practice-plans-this-is-how-we-model' },
-  security: { label: 'User security', url: 'https://help.anaplan.com/security-overview-f3a2b1c4-5e6d-7f8a-9b0c-1d2e3f4a5b6c' },
-  actions:  { label: 'User actions', url: 'https://help.anaplan.com/actions-and-processes-a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d' },
-  ux:       { label: 'UX design', url: 'https://help.anaplan.com/build-pages-17b0ba75-c9dc-4b68-840f-6f846632a42b' },
+  modeling: { label: 'Modeling best practices', url: 'https://support.anaplan.com/chapter-2-engine-18b47aa9-abe4-4685-9052-0341b5f81c4e' },
+  datamgmt: { label: 'Data management & integration', url: 'https://support.anaplan.com/chapter-5-integration-9654ecad-ba05-488e-a35d-a86b9693006a' },
+  datamodel:{ label: 'Data modeling', url: 'https://support.anaplan.com/chapter-1-central-library-54d2dd0d-5605-49e2-abce-128c2e449a0d' },
+  design:   { label: 'Model design (DISCO)', url: 'https://support.anaplan.com/chapter-2-engine-18b47aa9-abe4-4685-9052-0341b5f81c4e' },
+  security: { label: 'User security', url: 'https://help.anaplan.com/f0dd364d-cd04-429e-b788-15c79d8cf698' },
+  actions:  { label: 'User actions', url: 'https://support.anaplan.com/chapter-5-integration-9654ecad-ba05-488e-a35d-a86b9693006a' },
+  ux:       { label: 'UX design', url: 'https://support.anaplan.com/chapter-4-ux-build-903706d7-9c30-42fa-a958-25901edf9e5e' },
   impl:     { label: 'Implementation best practices', url: 'https://community.anaplan.com/kb/articles/23242-discover-the-anaplan-way-project-methodology' },
-  ado:      { label: 'Data orchestrator (ADO)', url: 'https://help.anaplan.com/anaplan-data-orchestrator-overview-b1c2d3e4-5f6a-7b8c-9d0e-1f2a3b4c5d6e' },
-  workflow: { label: 'Workflow', url: 'https://help.anaplan.com/workflow-d3ef84e7-e883-4b38-af79-889ea825df9f' },
-  apps:     { label: 'General apps', url: 'https://help.anaplan.com/apps-overview-c4d5e6f7-a8b9-0c1d-2e3f-4a5b6c7d8e9f' }
+  ado:      { label: 'Data orchestrator (ADO)', url: 'https://support.anaplan.com/1506fd13-f67d-464a-acde-ed7dd7de306d' },
+  workflow: { label: 'Workflow', url: 'https://help.anaplan.com/f3a0a1b9-2dc8-431d-9023-e97a5094df3c' },
+  apps:     { label: 'General apps', url: 'https://help.anaplan.com/7f5461b3-8f72-44a1-acb8-33ad320055ba' }
 };
 
 // ─── QUESTION BANK ─────────────────────────────────────────────────────────
-// multi:true = "choose 2 best answers", ans = array of 2 correct indices (0-based)
-// NOTE: option order is re-shuffled every time an exam starts (see shuffleQuestion), so file order does not matter.
-// multi:false = standard MC, ans = single index
-
-const EXAM1 = [
-{cat:"modeling",multi:false,
-q:"A model builder notices a line item that calculates a ratio between two values. The summary method is currently set to SUM. What should they change it to?",
-opts:["NONE, because aggregating a ratio gives a meaningless result", "AVERAGE, so the ratio is averaged across the list members", "SUM, because ratios should roll up like any other numeric value", "FORMULA, so the engine recalculates the ratio at summary level"],
-ans:0,
-exp:"Ratios should not be summed or averaged across list members — the result is mathematically meaningless. Setting summary to NONE prevents misleading totals and follows Planual rule 2.02-03."},
-
-{cat:"modeling",multi:false,
-q:"Which of the following formula patterns introduces the most significant performance risk in a large Anaplan model?",
-opts:["Removing the Time dimension from a calculation module", "Splitting a complex formula into intermediate line items", "Using a Boolean line item as a condition guard in a formula", "Using RANK() across a list that contains 50,000 members"],
-ans:3,
-exp:"RANK() is single-threaded and cannot be parallelized by the Anaplan engine. On large lists it becomes a severe bottleneck. Planual rule 2.02-20 specifically warns against using RANK, RANKCUMULATE, and ISFIRSTOCCURRENCE with large lists."},
-
-{cat:"modeling",multi:true,
-q:"A model builder finds the same sub-expression repeated in four places within one formula. According to Planual best practices, moving it into a single intermediate line item delivers which two benefits?",
-opts:["The logic is maintained in one place, so future changes are made only once", "The line item no longer needs a summary method defined for it", "The sub-expression is calculated once instead of four separate times", "The formula no longer depends on the dimension order of the module", "The calculation no longer needs to be redone when list members change"],
-ans:[0, 2],
-exp:"Planual rule 2.02-18 recommends breaking up formulas and avoiding repeated sub-expressions. Creating one intermediate line item means the sub-expression is calculated once and maintained in one place — improving performance and maintainability."},
-
-{cat:"modeling",multi:false,
-q:"According to the Planual, what is the recommended approach when a module has line items with varying dimensionality?",
-opts:["Group line items of the same dimensionality into separate modules", "Merge all calculations into one module to keep the module count low", "Add every possible dimension to the module so each line item can use it", "Keep one module and use subsidiary views to show each dimensionality subset"],
-ans:0,
-exp:"Planual rule 2.01-12 states that line items with the same dimensionality should be grouped together in dedicated calculation modules. Mixing dimensionalities in one module creates unnecessary cell count and calculation complexity."},
-
-{cat:"modeling",multi:false,
-q:"A model builder is asked to add a filter to a module that already uses Select Levels. What does the Planual recommend?",
-opts:["Prefer Select Levels, because it generally performs better than filters do", "Use only the filter, because it overrides Select Levels", "Use either Select Levels or a filter, but not both together", "Apply both, since the two features complement each other"],
-ans:2,
-exp:"Planual rule 2.01-14 explicitly states: do not use Select Levels combined with filters on the same hierarchy. It is a double filter — both kick off simultaneously — creating unnecessary calculation overhead. Use one or the other."},
-
-{cat:"design",multi:false,
-q:"In the DISCO model design framework, a line item that determines whether a product is active and is referenced by multiple other modules belongs in which module type?",
-opts:["C — Calculations module", "I — Inputs module", "S — System module", "D — Data module"],
-ans:2,
-exp:"System (S) modules hold the structural logic of the model — Boolean flags, mappings, and attributes that other modules reference. An \"is active\" flag is a system attribute, not a user input or calculation result."},
-
-{cat:"design",multi:false,
-q:"A solutions architect reviews a model where users enter budget assumptions and the same module also contains 12 formula-driven lines that roll those assumptions into financial projections. What is the primary architectural problem?",
-opts:["Inputs and calculations are mixed in one module, violating DISCO separation", "The module holds too many line items to be maintained as a single unit", "The module should be split by time dimension so each period is isolated", "Budget assumptions belong in a Data Hub rather than in a planning module"],
-ans:0,
-exp:"DISCO requires separation of Input modules (user entry, minimal logic) from Calculation modules (formula-driven derivations). Mixing them creates performance issues, makes auditing difficult, and increases the risk of accidental data overwriting."},
-
-{cat:"design",multi:true,
-q:"Which two of the following are valid use cases for subsidiary views according to Planual best practices?",
-opts:["For ratio calculations that need a specific dimensional context", "To permanently replace the standard module view for all users", "To add dimensions that are not part of the underlying module", "To show a chosen subset of line items on a UX board card", "As the default view that every user sees when opening a module"],
-ans:[0, 3],
-exp:"The Planual permits subsidiary views specifically for ratio formulas and dashboard/page display purposes. They should never be used as a default view or as a workaround for adding dimensionality. Planual rule 2.01-12 warns against relying on subsidiary views broadly."},
-
-{cat:"design",multi:false,
-q:"A model architect is designing a new model and considering whether to use Data Tags. What does the Planual recommend?",
-opts:["Apply Data Tags only to Output modules, to mark what end users consume", "Use Data Tags to mark each module's DISCO category, if not used otherwise", "Treat Data Tags as optional, since they are rarely worth the overhead", "Skip Data Tags, since module naming conventions have now replaced them entirely"],
-ans:1,
-exp:"Planual rule 2.01-16 recommends using Data Tags to identify the DISCO category of each module. This supports governance, makes model audits easier, and helps model builders quickly understand a module's purpose."},
-
-{cat:"design",multi:false,
-q:"When creating a module that uses lists instead of native Time and Versions, where should those lists appear in the dimension order?",
-opts:["As the first two dimensions, mirroring native Time and Versions", "In any order, since dimension order has no effect on performance", "In the middle, between the largest and the smallest lists", "As the last dimensions, after all other business dimensions"],
-ans:0,
-exp:"Planual rule 2.01-19 states that if using lists instead of native timescale or versions, those lists should be placed first in the dimension order. This mirrors the native behavior and improves performance when mapping between native time/versions and standard lists."},
-
-{cat:"alm",multi:false,
-q:"A model builder has completed a sprint and wants to deploy structural changes from DEV to Production. What is the correct sequence?",
-opts:["Overwrite Production with a Bulk Copy of the DEV model", "Export the DEV modules and import them into Production", "Make the edits in Production, then record them in DEV afterward", "Create a revision tag in DEV, then sync it to Production"],
-ans:3,
-exp:"The ALM workflow always flows DEV → revision tag → sync to Production. Editing Production directly or using Bulk Copy bypasses the controlled change process and risks data integrity. Revision tags are the mechanism for capturing and deploying structural changes."},
-
-{cat:"alm",multi:false,
-q:"What is the key distinction between a Production List and a standard list in an ALM-managed model?",
-opts:["They hold only numeric values and cannot have properties, hierarchies, or subsets", "Their membership is managed in Production and is not overwritten during sync", "They are archived automatically after each sync and rebuilt from DEV", "They are locked as read-only in Production, so no one can edit them"],
-ans:1,
-exp:"Production Lists are lists whose members are managed directly in Production. During an ALM sync, the list structure (its existence and properties) is synchronized from DEV, but the actual list members are preserved — they are not overwritten by DEV data."},
-
-{cat:"alm",multi:true,
-q:"A workspace admin is assessing the risks of changing a list from a general list to a numbered list in a Production model. Which two risks are most significant?",
-opts:["Planner roles will lose access to every module that uses the list", "Revision tag history for the model will be permanently deleted", "The list will temporarily lose its selective access settings", "Existing imports and formulas that reference list members by name may break", "Data in line items dimensioned by that list may be lost or misaligned"],
-ans:[3, 4],
-exp:"Changing a list type is a structural change with serious consequences. Imports and formulas that reference members by display name may fail since numbered lists use system IDs. More critically, data stored in modules dimensioned by that list can be lost or misaligned during the conversion — a potentially irreversible data loss risk."},
-
-{cat:"alm",multi:false,
-q:"After restoring a UAT model from an archive, the model builder discovers the DEV-UAT sync relationship has been broken. What is the correct way to restore it?",
-opts:["Delete the UAT model and rebuild it from DEV using a Bulk Copy", "Apply a revision tag from DEV to UAT to restore the structural baseline", "Manually recreate each of the structural changes directly in UAT", "Raise a case with Anaplan Support to repair the broken sync relationship"],
-ans:1,
-exp:"Applying a revision tag from DEV to the restored UAT model re-establishes the structural baseline and restores the ALM sync relationship. This is the standard recovery approach when a DEV-UAT link is broken due to archiving or other disruption."},
-
-{cat:"alm",multi:false,
-q:"In Deployed mode, which of the following actions can a workspace administrator perform that an end user cannot?",
-opts:["Run saved actions that have been placed on the UX pages they use", "Make structural changes, such as adding line items or lists", "View data in modules where they have been given read access", "Export module data to a flat file where permitted"],
-ans:1,
-exp:"Deployed mode locks structural changes from end users. Workspace administrators retain the ability to make structural changes in a deployed model, though this should be done carefully and ideally through the proper DEV → sync workflow to maintain ALM integrity."},
-
-{cat:"datamodel",multi:false,
-q:"A model builder needs to store sales transaction data where multiple transactions can share the same customer name on the same date. Which list type is most appropriate?",
-opts:["A general list, with unique names enforced for each member", "A hierarchy with customers on top and dates as children", "A flat list whose names combine the customer and the date", "A numbered list, which uses a system-generated ID as its key"],
-ans:3,
-exp:"Numbered lists use a system-generated unique ID, so display names do not need to be unique. This makes them ideal for transactional data such as journal entries, purchase orders, or sales lines where the same descriptive text may appear multiple times."},
-
-{cat:"datamodel",multi:false,
-q:"What is the purpose of a Line Item Subset (LIS) in Anaplan?",
-opts:["To control which of a module's line items appear on a given UX page card", "To restrict a module's time range to a specific set of periods", "To create a filtered view of list members based on a Boolean flag", "To reference a group of line items as if they were a list dimension"],
-ans:3,
-exp:"A Line Item Subset (LIS) allows a group of line items from a module to be treated as a list dimension in other modules. This enables dynamic referencing of line items — useful for driver-based planning, allocation models, and flexible reporting structures."},
-
-{cat:"datamodel",multi:true,
-q:"A model architect is deciding whether to store an employee's department as a list property or as a line item in a system module. Which two statements correctly describe the trade-offs?",
-opts:["List properties calculate faster than system module line items in every model", "List properties are easier to import and update from external sources", "System module line items can be referenced directly in formulas and mappings", "Both approaches give identical performance regardless of model design", "System module line items use more memory than properties for the same data"],
-ans:[1, 2],
-exp:"System module line items are preferred for attributes used heavily in formulas and mappings — they participate directly in the calculation engine. List properties are easier to manage for import/update workflows. Planual generally favors system modules for attributes used in calculations, and list properties for display or import purposes."},
-
-{cat:"datamodel",multi:false,
-q:"A planning module is dimensioned by Product (500 members), Region (20 members), and Month (24 periods). Approximately how many cells does this module contain per line item?",
-opts:["544 cells", "240,000 cells", "12,000 cells", "10,000 cells"],
-ans:1,
-exp:"Cell count per line item = product of all dimension members: 500 × 20 × 24 = 240,000 cells. Understanding cell count is fundamental to model size management — each number line item at 8 bytes would consume approximately 1.9 MB just for this one line item."},
-
-{cat:"ux",multi:false,
-q:"A UX designer is building a planning page for regional finance managers who need to enter monthly budget figures across 800 cost center rows. Which page type is most appropriate?",
-opts:["Report — it offers the best formatting for large datasets", "A module view opened directly — it avoids any UX overhead", "Worksheet — built for full-page grids and bulk data entry", "Board — its grid cards are designed for large-scale data entry"],
-ans:2,
-exp:"Worksheets are specifically designed for large-grid data entry and analysis. They provide a full-page grid as the primary surface with an Additional Insights panel for supporting context. Boards are for high-level summaries; Reports are read-only."},
-
-{cat:"ux",multi:false,
-q:"An executive stakeholder requests a view of quarterly KPIs that they can present in a meeting and export as a PDF. Which Anaplan UX page type best meets this need?",
-opts:["Board with KPI cards prominently displayed", "Report page with slide-based formatting", "Worksheet with KPI line items highlighted", "A saved module view exported to Excel"],
-ans:1,
-exp:"Report pages are designed for structured, slide-based presentations with rich formatting. They can be presented full-screen and exported as PDF — making them the right fit for executive presentation scenarios. Data cannot be edited in Reports."},
-
-{cat:"ux",multi:true,
-q:"A solutions architect is reviewing a UX board and finds that it contains 15 grid cards, each sourcing from a different module. Which two issues does this most likely create?",
-opts:["Charts can no longer be shown on the same board as grid cards", "Page load times slow down because many data requests run at once", "The board automatically converts into a Worksheet page layout", "Grid cards fail to refresh unless all modules share the same dimensions", "The board becomes hard to audit, update, and govern over time"],
-ans:[1, 4],
-exp:"A board with many grid cards from different modules creates performance issues (multiple data loads) and governance challenges (difficult to understand, audit, and maintain). Best practice is to keep boards focused — fewer, well-chosen cards from a coherent data source."},
-
-{cat:"ux",multi:false,
-q:"A user reports that they can see a list member in a module but all cells in that row are locked and cannot be edited. No role restriction explains this. What is the most likely cause?",
-opts:["The user's Selective Access setting does not cover that list member", "DCA is configured to make those cells read-only for that user's role", "The module has been archived, which makes it read-only for everyone", "The model is in Standard mode, which locks every cell for end users"],
-ans:1,
-exp:"DCA controls cell-level read/write access based on a Boolean line item, independent of Selective Access (which controls list member visibility). A user can see a row (Selective Access allows it) but find cells locked (DCA is applying a read-only state for their role or context)."},
-
-{cat:"taw",multi:false,
-q:"A project team has just completed stakeholder interviews, defined the high-level solution scope, and is now preparing user stories and sprint buckets. Which TAW phase are they transitioning into?",
-opts:["Testing — the user stories are being prepared for UAT", "Implementation — sprint planning marks the start of build cycles", "Pre-Release — they are still defining the project scope", "Foundation — they are setting the stage for implementation"],
-ans:3,
-exp:"The Foundation phase sets the stage for implementation: it includes project planning, design and process planning, and sprint planning. Moving from scoping (Pre-Release) to organizing user stories and sprint buckets is the hallmark of entering Foundation."},
-
-{cat:"taw",multi:false,
-q:"According to The Anaplan Way, which cornerstone is most at risk if the project team does not engage the business process owner early and continuously throughout the implementation?",
-opts:["Process — the model may not support the actual business workflow", "Deployment — go-live communications will slip behind schedule", "Model — the technical build may not reflect the business logic as designed", "Data — master data quality will degrade without oversight"],
-ans:0,
-exp:"The Process cornerstone represents the wider business process the Anaplan model supports. Without continuous engagement from the process owner, the model may be technically correct but fail to match how the business actually operates — the most common cause of UAT failure."},
-
-{cat:"taw",multi:true,
-q:"Which two activities are characteristic of the Deployment phase in The Anaplan Way?",
-opts:["Holding sprint planning and backlog grooming sessions for the build", "Delivering end-user training and change management communications", "Finalizing the model schema and submitting the blueprint for approval", "Providing hypercare support and monitoring performance after go-live", "Running the Pre-Release scoping workshop with executive sponsors"],
-ans:[1, 3],
-exp:"The Deployment phase focuses on ensuring the solution is adopted: end-user training, change management, clear communication, documentation, and post-go-live monitoring/hypercare. Sprint planning and schema work belong to Foundation and Implementation."},
-
-{cat:"taw",multi:false,
-q:"A project sponsor pushes to skip the Pre-Release phase and move directly to model building to save time. What is the primary risk of this decision?",
-opts:["The scope will be poorly defined, causing rework, cost overruns, and delays", "The builder will not have access to the Anaplan environment in time", "Sprint reviews will start two weeks later than the original plan", "The model will end up with more line items than the business needs"],
-ans:0,
-exp:"Pre-Release exists to accurately scope the project in terms of cost, time, and complexity. Skipping it is the most common cause of failed implementations — undefined scope leads to uncontrolled change, rework, and budget/timeline overruns. TAW treats Pre-Release as non-negotiable."},
-
-{cat:"datamgmt",multi:false,
-q:"A data engineer is designing the integration architecture for an Anaplan implementation with five spoke models. All models need the same employee hierarchy. What is the recommended approach?",
-opts:["Centralize the hierarchy in a Data Hub and distribute it to each spoke via imports", "Store the hierarchy in a flat file and schedule uploads to each spoke model", "Use CloudWorks to sync the hierarchy directly from one spoke model to the rest", "Import the hierarchy separately into each spoke model directly from the source system"],
-ans:0,
-exp:"A Data Hub centralizes master data (lists, hierarchies, attributes) and distributes it to spoke models. This ensures a single source of truth, reduces duplication, and makes hierarchy updates a single-point operation rather than requiring changes in five models independently."},
-
-{cat:"datamgmt",multi:false,
-q:"A shared import data source in Anaplan has been set to \"Everyone.\" A user runs the import from a UX action card and uploads their own file. What happens to that file?",
-opts:["It is rejected, because only workspace admins can upload files to shared imports", "It overwrites the shared source file used by every other user", "It is deleted automatically as soon as the import completes", "It is stored as a private source that only that user's later runs will use"],
-ans:3,
-exp:"When a user uploads a file while running a shared import from a dashboard or action card, that file is stored as an additional private source associated with the import data source. On their next run, it uses their private source. Other users continue to use the shared source."},
-
-{cat:"datamgmt",multi:true,
-q:"A model builder is troubleshooting a failed import action. The error message indicates a mapping failure. Which two root causes should they investigate first?",
-opts:["The user's role does not permit them to run import actions in the model", "The workspace has reached its size limit, preventing further data loads", "A source column name changed after the import mapping was configured", "A target list member that served as a mapping key has been removed", "The import file exceeds the maximum file size accepted by the import"],
-ans:[2, 3],
-exp:"Import mapping failures most commonly occur when the source structure changes (column names, order, or format) or when a list member used as a mapping key in the target no longer exists. These are the two most frequent root causes to investigate before looking at permissions or file size."},
-
-{cat:"datamgmt",multi:false,
-q:"What happens to a private import data source if the user who created it does not access it for more than 48 hours?",
-opts:["It is permanently deleted together with the import action itself", "It expires and is removed, while the import's shared source stays available", "It is archived and made available to workspace administrators only", "It is automatically converted to a shared source after 48 hours"],
-ans:1,
-exp:"Private import sources expire after 48 hours of no access. They are removed, but if a shared source exists for the same import data source, the import can still be run using the shared file. This behavior applies both to privately-created imports and additional private sources users upload for shared imports."},
-
-{cat:"impl",multi:false,
-q:"A model builder is midway through an implementation and realizes the original user stories do not capture a key planning requirement the business now considers critical. What is the recommended response according to TAW?",
-opts:["Decline it, because scope cannot change once the Foundation phase is complete", "Pause the implementation and return to the Pre-Release phase to rescope the whole project", "Build it straight away outside the backlog so the sprint timeline is protected", "Add it to the backlog, prioritize it with the product owner, and slot it into a sprint"],
-ans:3,
-exp:"TAW uses an Agile methodology. New or changed requirements should be added to the backlog, prioritized by the product owner in collaboration with the delivery team, and scheduled into a sprint. This maintains control without stopping the implementation."},
-
-{cat:"impl",multi:false,
-q:"A go-live is approaching and the business stakeholder has not signed off on UAT. The model builder believes the model is complete. What should happen next?",
-opts:["Hold go-live until the business stakeholder completes UAT and signs off", "Mark UAT as complete and record the missing sign-off in project documentation", "Proceed to go-live, because the model builder's sign-off is sufficient", "Ask the workspace administrator to approve UAT on the business's behalf"],
-ans:0,
-exp:"UAT is owned by the business, not the model builder. The business stakeholder must verify the solution meets requirements and sign off before go-live. Proceeding without this sign-off is a significant project governance risk and common cause of post-go-live failure."},
-
-{cat:"impl",multi:true,
-q:"A project has gone live but end users are not adopting the Anaplan solution — they continue using their old Excel process. Which two activities, if done during Deployment, would most directly address this?",
-opts:["Running a change management campaign that explains the benefits", "Providing structured end-user training on the new planning process", "Extending UAT by two weeks so more defects are found before release", "Adding line items so the model mirrors every column of the Excel files", "Adding extra UX pages so users can reach more of the model's data"],
-ans:[0, 1],
-exp:"Low adoption after go-live is a change management failure, not a technical one. Structured end-user training and a communication campaign explaining the \"why\" and \"how\" of the new process are the two most direct interventions. TAW's Deployment cornerstone explicitly calls out training and communication as essential activities."},
-
-{cat:"impl",multi:false,
-q:"During an implementation, a model builder is building features that were not in the agreed user stories without informing the product owner. What risk does this introduce?",
-opts:["The model will be blocked by ALM validation before it can be deployed", "Performance problems, because the model will end up with too many line items", "The revision tag will be rejected when it is synced to Production", "Scope creep — unplanned features use up sprint capacity and miss real needs"],
-ans:3,
-exp:"Building unplanned features without product owner awareness is scope creep — a leading cause of implementation delays and budget overruns. TAW's Agile methodology requires all work to flow through the backlog and be prioritized by the product owner to maintain scope control."},
-
-{cat:"security",multi:false,
-q:"A manager should see only their direct reports' data, while other managers see only their own reports' data. Which Anaplan security mechanism best implements this requirement?",
-opts:["Selective Access on the employee list, driven by a Boolean system module", "Dynamic Cell Access (DCA) driven by a role-based Boolean line item", "Workspace roles that give each manager Planner access to only their own team", "Deployed mode, which restricts data visibility for end users by default"],
-ans:0,
-exp:"Selective Access controls which list members a user can see, based on a Boolean line item in a system module. Assigning each manager's Boolean flag to TRUE for their direct reports only is the correct pattern for row-level data restriction in Anaplan."},
-
-{cat:"security",multi:false,
-q:"A company wants to automatically provision and de-provision Anaplan users when employees join or leave, synchronized with their Azure Active Directory. Which Anaplan capability supports this?",
-opts:["Manual workspace administration in the Anaplan portal", "Audit API with automated user-deletion scripts", "SCIM API integration with the identity provider", "CloudWorks flows that synchronize the Users list"],
-ans:2,
-exp:"The SCIM (System for Cross-domain Identity Management) API enables automated user lifecycle management — provisioning, de-provisioning, and attribute synchronization — integrated with identity providers like Azure AD, Okta, or similar SSO platforms."},
-
-{cat:"security",multi:false,
-q:"A solutions architect is explaining DCA to a business stakeholder who wants to use it to prevent unauthorized users from accessing sensitive financial data. What is the most important caveat to communicate?",
-opts:["DCA cannot be combined with Selective Access in one model, so the two must be applied in separate models", "DCA requires a separate security module to be built for every model in the workspace", "DCA is a UX-level access layer, not engine-level security; administrators can still reach the data", "DCA only works on Boards, so Worksheet pages remain fully exposed to every user"],
-ans:2,
-exp:"DCA controls cell visibility and editability in the UX, but it is not a true security enforcement mechanism at the data level. Workspace administrators can bypass DCA by accessing modules directly. For genuine data security, Selective Access and role-based restrictions are more robust — DCA should be described as a UX control layer, not a security guarantee."},
-
-{cat:"ado",multi:false,
-q:"A data team wants to combine two datasets from different source systems, keeping only the records that exist in both datasets based on a common key. Which ADO join type should they use?",
-opts:["Outer join — keeps all rows from both datasets whether or not they match", "Union — stacks both datasets together into one combined set of rows", "Lookup join — keeps all rows from the primary dataset, adding matches", "Inner join — keeps only rows whose keys match in both datasets"],
-ans:3,
-exp:"An inner join returns only the intersection — rows where a matching key exists in both datasets. This is the correct choice when the team wants to work only with records confirmed to exist in both sources."},
-
-{cat:"ado",multi:false,
-q:"In the ADO five-pillar framework, which pillar is responsible for pushing transformed data out to Anaplan spoke models?",
-opts:["Connect", "Disseminate", "Map", "Transform"],
-ans:1,
-exp:"The Disseminate pillar handles the outbound flow — pushing data that has been connected, transformed, and stored to destination Anaplan models (spoke models). Connect brings data in; Disseminate pushes it out."},
-
-{cat:"ado",multi:false,
-q:"A data engineer needs to combine two datasets that have different columns, keeping all rows from both datasets regardless of whether a match exists. Which ADO operation is appropriate?",
-opts:["Lookup join on the key columns", "Inner join on the key columns", "Full outer join on the key columns", "Union of the two datasets"],
-ans:2,
-exp:"A full outer join (or outer join) keeps all rows from both the primary and secondary datasets, inserting null/blank values where no match exists. This differs from a lookup join (all primary rows + matched secondary columns) and an inner join (only matched rows)."},
-
-{cat:"workflow",multi:false,
-q:"A budgeting process requires the CFO to review and approve each regional plan before it is consolidated. Regional managers must also be notified when the CFO has approved their submission. Which combination of Workflow features supports this?",
-opts:["A single Process action that runs the consolidation as soon as all regions submit", "Machine tasks for the regional submissions and a manual email to the CFO for approval", "Page tasks for submissions, a Decision task for CFO approval, and notification steps", "Selective Access restrictions that block consolidation until every region is complete"],
-ans:2,
-exp:"Page tasks direct users to specific UX pages for data entry or review. Decision tasks enable approvals with branching logic (approve/reject). Notification steps send automated alerts to stakeholders at defined workflow stages. This combination covers the full described scenario."},
-
-{cat:"workflow",multi:false,
-q:"Three regional finance teams need to submit their forecasts simultaneously, and the consolidation step should only run after all three have submitted. Which Workflow feature enables this?",
-opts:["Parallel steps in Workflow Advanced, so all three regions work at once", "Three separate Workflow templates that the administrator merges manually", "Sequential tasks assigned to each region one after another in order", "A Process action with conditional logic that checks each region's status"],
-ans:0,
-exp:"Parallel steps in Workflow Advanced allow multiple assignees to work simultaneously on independent tasks. The workflow engine waits for all parallel branches to complete before advancing — exactly the pattern needed for simultaneous multi-region submission before a consolidation step."},
-
-{cat:"actions",multi:false,
-q:"A UX page has an action button that runs a process containing five steps: two imports, a calculation trigger, a delete action, and an export. The second import consistently fails. What is the most efficient troubleshooting approach?",
-opts:["Run each of the five actions manually instead of through the process", "Request a larger workspace size allocation so the import has more room", "Check the second import's mapping and confirm the source structure still matches", "Delete the whole process and rebuild all five actions from scratch to clear the error"],
-ans:2,
-exp:"Import failures in a process are almost always mapping issues — the source data structure (column names, list values, or format) no longer matches the import definition. Reviewing the mapping definition against the current source is the most targeted and efficient first step."},
-
-{cat:"apps",multi:false,
-q:"A solutions architect is designing a global planning application where corporate users need a read-only summary view and regional users need data entry pages. What is the recommended UX architecture?",
-opts:["Give corporate users the module view and reserve UX pages for the regional planners only", "Build one app and use DCA to lock every cell on every page for the corporate users", "A single app with role-based page access: summary boards for corporate, input pages for regions", "Build two separate apps, one for corporate and one for regional, to keep them completely isolated"],
-ans:2,
-exp:"A single app with role-based navigation and appropriate page access is the standard recommendation. It minimizes maintenance overhead, keeps the solution coherent, and uses Anaplan's native role system to control what each user type sees and can do — rather than managing two parallel app structures."},
-
+// multi:true = "choose 2 best answers" (ans = array of 2 indices); multi:false = single answer (ans = index)
+const EXAM_A = [
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "A headcount module covering 40,000 employees calculates monthly FTE roll-ups with one formula that pulls values from another module and totals them over a list, and recalculation has slowed noticeably. What should the builder do first?",
+  "opts": [
+   "Break the formula into separate line items, ideally in separate modules, so each part calculates on its own",
+   "Replace the cross-module reference with CUMULATE to cut the reads per cell",
+   "Wrap the combined expression in nested IFs to exit early on blanks",
+   "Turn on summary methods for the line item to store the totals in advance"
+  ],
+  "ans": 0,
+  "exp": "Planual 2.02-08: never use SUM and LOOKUP in the same expression. Together they create large intermediate calculations, especially with Time or very different source and target structures; splitting them considerably shrinks that work. Polaris makes this rule even more important (Polaris 2.02-09)."
+ },
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "A Classic model stores an 'Is Active' indicator as 1 or 0 on a module with millions of cells, and the team needs to cut model size. Which change gives the biggest reduction for the least effort?",
+  "opts": [
+   "Move the indicator into a list property to store it once per list member",
+   "Change its format to Boolean, which takes about one-eighth of the space a Number uses",
+   "Change its format to Text so formulas can compare it against a fixed string of characters",
+   "Keep the 1 and 0 values but hold them in a dedicated Line Item Subset"
+  ],
+  "ans": 1,
+  "exp": "Planual 2.02-07: in Classic a Boolean takes 1/8th of the space of a Number, so use TRUE/FALSE unless a numeric value is needed. Text uses more memory than any other format (2.03-02), and list properties are discouraged (1.05-03)."
+ },
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "A builder moves the most common condition to the front of a long IF formula in a Polaris model, as they always did in Classic. The reviewer says the change will not help. Why?",
+  "opts": [
+   "Polaris evaluates conditions from right to left, so the most common case should be placed last in the formula",
+   "Polaris honors condition order when the line item is also dimensioned by Time",
+   "Polaris works out the formula's meaning and picks an efficient path, so case order is irrelevant",
+   "Polaris skips IF conditions that reference Booleans, so reordering them changes nothing"
+  ],
+  "ans": 2,
+  "exp": "Polaris 2.02-05: early exits matter far less than in Classic because Polaris works out the meaning of the formula. IF X THEN Y ELSE Z is equivalent to IF NOT X THEN Z ELSE Y. Classic 2.02-17 (most common condition first) still applies in Classic models."
+ },
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "In a Polaris model, a Boolean 'Not Eligible' flag is TRUE for about 95 percent of customer-product combinations and the module uses far more memory than expected. What change helps most?",
+  "opts": [
+   "Reorder the module dimensions so the customer list comes first in the Applies To",
+   "Switch the flag to Number format so that Polaris can compress the repeated TRUE values",
+   "Turn on summary methods so that the TRUE cells are aggregated and stored just once in the module",
+   "Reverse the logic into an 'Eligible' flag so the common result is the unstored FALSE default value in most cells"
+  ],
+  "ans": 3,
+  "exp": "Polaris 2.02-06: Polaris only uses memory for non-default values (non-zero, non-FALSE, non-blank), so design logic to land on the default as often as possible. Dimension order does not matter in Polaris (Polaris 2.01-02), and Booleans are about the same size as other formats there (2.02-04)."
+ },
+ {
+  "cat": "modeling",
+  "multi": true,
+  "q": "A discount formula tests IF ITEM(Product)=Product.X for three named products, and the eligible products change every quarter. Which two statements correctly guide the fix?",
+  "opts": [
+   "Keep the product-specific logic out of the formula and drive it from data instead",
+   "A Boolean line item in a SYS module lets many members share the same logic",
+   "Using SELECT against each product keeps the formula flexible while avoiding the member references",
+   "Adding a list property per product stores the discount rate with each member",
+   "Creating a one-item subset for each product keeps the exceptions easy to audit"
+  ],
+  "ans": [
+   0,
+   1
+  ],
+  "exp": "Planual 2.02-12: avoid direct references to list members and use a SYS-module Boolean instead, which is more dynamic because multiple members can share the logic. SELECT is itself a hardcode (2.02-14), list properties are discouraged (1.05-03) and single-item subsets are avoided (1.06-03)."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "Users type budget assumptions into a module that also holds twelve formula lines rolling those assumptions into projections. A reviewer flags the design. What is the main fix?",
+  "opts": [
+   "Move the user entry into the Data Hub and leave the formulas where they are",
+   "Split it into an Input module for entry and a Calculation module for derived lines",
+   "Split the module by time period so that each month holds its own separate set of formulas",
+   "Hide the formula lines with a saved view so that users see only the input lines"
+  ],
+  "ans": 1,
+  "exp": "DISCO (Planual 2.01-04): Input modules are designed for user entry with minimal calculation, and Calculation modules group formulas of like dimensionality (2.01-12). The Data Hub holds source-system data, not planning inputs (5.07-06)."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "A team proposes functional areas named D, I, S, C and O so every module sits under its DISCO category. How should the architect respond?",
+  "opts": [
+   "Advise against it, since DISCO labels module types and each functional area usually holds several of them",
+   "Approve it, provided an empty separator module sits between each of the five new areas",
+   "Advise against it, because functional areas can hold only one module type each",
+   "Approve it; functional areas are the Planual's recommended home for DISCO categories"
+  ],
+  "ans": 0,
+  "exp": "Planual 2.01-05: don't use DISCO as functional areas. Group modules by function (2.01-02) and, if the DISCO category should be visible, use Data Tags (2.01-16)."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "A calculation module keeps returning errors, so the builder keeps adding dimensions to the Applies To until the formula returns the expected values. What does the Planual advise?",
+  "opts": [
+   "Add the missing dimensions, then set every line item summary to None to compensate",
+   "Keep adding dimensions, because extra dimensions never change the cell count in a Polaris model",
+   "Review the calculation itself and look for an existing module with the needed dimensions",
+   "Add them in a subsidiary view so the main module keeps its original structure"
+  ],
+  "ans": 2,
+  "exp": "Planual 2.01-20: only include dimensions the calculation needs. If a formula errors or returns the wrong value, review the calculation rather than adding dimensions, and look for an existing calculation module that already has the right dimensions."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "A team built Time and Versions as ordinary lists instead of using the native settings, and mapping between native-style data and those lists is slow. What should the architect check?",
+  "opts": [
+   "That both lists are defined as subsets of one master calendar list in the model",
+   "That the Time and Versions lists are the last two dimensions in the module's dimension order",
+   "That both lists have a Top Level enabled so their values can be aggregated",
+   "That the Time and Versions lists are the first two dimensions in each module"
+  ],
+  "ans": 3,
+  "exp": "Planual 2.01-19: if you use lists instead of native time or versions, place them as the first two lists in the dimension order. This mirrors the native settings and improves mapping performance."
+ },
+ {
+  "cat": "design",
+  "multi": true,
+  "q": "A reviewer finds many subsidiary views in the calculation modules of a Classic model. Which two actions follow Planual guidance?",
+  "opts": [
+   "Keep subsidiary views for narrow uses, such as ratio formulas or page attributes",
+   "Keep subsidiary views as the default view so that end users see only their own line items",
+   "Turn each subsidiary view into its own calculation module that repeats the same formulas",
+   "Use subsidiary views to add extra dimensions that the main module does not have",
+   "Group calculation modules by like dimensionality so line items share an Applies To"
+  ],
+  "ans": [
+   0,
+   4
+  ],
+  "exp": "Planual 2.01-06 and 2.01-12: subsidiary views are hard to work with and audit, so create groups of calculation modules with like dimensionality. Exceptions include displaying attributes on pages, ratio formulas and reporting/export modules."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "A production model is in Deployed mode, and a workspace administrator needs a new line item added today. What is the correct approach?",
+  "opts": [
+   "Build the line item in DEV, create a revision tag, and synchronize it to Production",
+   "Switch Production to Standard mode, add the line item, then switch it back to Deployed mode",
+   "Build it in the Test model and synchronize Test to Production",
+   "Add it directly in Production; workspace administrators keep structural access in Deployed mode"
+  ],
+  "ans": 0,
+  "exp": "Anapedia (ALM overview): Deployed mode locks production models so that production users, including workspace administrators, can only modify data, not structure. Planual 6.03-01 says never take Production out of Deployed mode, and 6.05-01 says make DEV the source for everything."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "End users add and remove customers on a page in Production, and a Data Hub also loads customers nightly. How should the Customer list be set up for ALM?",
+  "opts": [
+   "Make it a subset of the Data Hub list so that Production users can edit it directly",
+   "Keep it Structural and give end users write access to it through the Users pane",
+   "Keep it Structural so that the customers in DEV flow into Production at each synchronization",
+   "Set it as a Production Data list so Production manages its members without sync overwrites"
+  ],
+  "ans": 3,
+  "exp": "Planual 6.02-03: only lists that must be amended as part of the business process, or that imports populate, should be Production Data lists. Per an older Anapedia post (ALM Explained, Part 3), a sync transfers only structural information; production data never moves from DEV to Production."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "A team marks every list as Production Data 'to be safe' before the first sync, and later changes the setting on some of them. What is the main risk?",
+  "opts": [
+   "Production Data lists double their memory use until the setting is cleared",
+   "The revision tag history is deleted for every list that was ever synchronized",
+   "Reverting a synchronized list to the Structural setting deletes its data in Production",
+   "Lists switched back to Structural stay unsynchronized until the model is rebuilt"
+  ],
+  "ans": 2,
+  "exp": "Planual 6.02-01: define Production lists before the first sync. Setting a list back to Structural after a synchronization removes data from the existing Production list, even if the members are identical. See also 6.02-03 and 6.02-04."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "Testers ask to keep the Test model in Standard mode so they can adjust structure while testing. What is the Planual's concern?",
+  "opts": [
+   "Standard mode doubles the model size that is counted against the workspace allowance",
+   "Test would stop mirroring Production, and a Test-to-Prod sync could then happen by accident",
+   "Standard mode removes the saved views from the Test model after every single synchronization",
+   "Testers lose the ability to run imports in a Standard-mode model until it is deployed again"
+  ],
+  "ans": 1,
+  "exp": "Planual 6.03-03: keep Test models in Deployed mode and treat them like Production. This gives a true representation of testing and prevents inadvertent synchronizations from Test to Prod."
+ },
+ {
+  "cat": "alm",
+  "multi": true,
+  "q": "A developer mistypes a revision tag description and asks how to avoid this in future. Which two practices does the Planual support?",
+  "opts": [
+   "Keep fuller revision details in a module on a normal, non-production list",
+   "Store the revision details on a Production Data list so they travel with each sync",
+   "Edit the description later using the Compare and Synchronize feature",
+   "Use consistent Major.Minor names such as R1.01, R1.02 and R2, remembering the description cannot change",
+   "Delete the tag and re-create it, which also resets the model's structural history"
+  ],
+  "ans": [
+   0,
+   3
+  ],
+  "exp": "Planual 6.01-01: use Major.Minor naming, and remember the description is permanent and can't be changed. 6.01-03: for broader documentation, store revision details (approved date, user story, developer, sign-off date) in a module on a normal, non-production list."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "A retailer loads individual sales transactions, and several transactions share the same customer and date. Which list setup fits the Planual?",
+  "opts": [
+   "A general list whose member names combine the customer and the date",
+   "A flat general list with the customer set as the Top Level",
+   "A numbered list, with a unique code loaded for each transaction",
+   "A subset of the Customer list with one member per transaction"
+  ],
+  "ans": 2,
+  "exp": "Numbered lists carry unique identifiers so duplicate names are manageable (BA Practice Guidelines). Planual 1.05-02 and 1.05-04 say always use a code, especially for numbered lists, and 5.07-09 warns against a top level on large transaction lists."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "A model uses a daily calendar spanning eight years, yet most modules only need monthly history. What should the builder do?",
+  "opts": [
+   "Use SELECT on individual dates to restrict how many days are calculated in each module",
+   "Add every timescale subtotal so that the daily periods are precomputed for each module",
+   "Remove Current Period to stop the calendar updating itself each month",
+   "Apply Time Ranges so that each module carries only the span of detail it needs"
+  ],
+  "ans": 3,
+  "exp": "Planual 1.01-08: review the need for daily granularity over five or more years and use Time Ranges to restrict it (1.01-07). Timescale subtotals should be off by default (1.01-05) and SELECT with Time is avoided (1.01-01)."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "A planner wants twelve scenarios, some of which need role-specific subsets, and the builder plans to make all twelve native Versions. What should the architect suggest?",
+  "opts": [
+   "Keep native Versions few and model the other scenarios with a normal list that can be subset",
+   "Use native Versions for all twelve and create a subset of them for each role that needs one",
+   "Create a separate model for each scenario and link them with imports",
+   "Use native Versions and drive each scenario through formulas entered in the Version settings"
+  ],
+  "ans": 0,
+  "exp": "Planual 1.02-05: avoid a high number of native Versions and use a normal list if native Versions are not critical. The BA Practice Guidelines note native Versions don't allow subsets, and 1.02-02 says not to use formulas in Version settings."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "A builder adds a text line item and a date line item to a Line Item Subset, planning to reference members by name with ITEM(). Why will this fail?",
+  "opts": [
+   "Only one line item from each module can feed a Line Item Subset at any one time",
+   "A Line Item Subset takes numeric line items only and is read with COLLECT(), not by name, so ITEM() fails",
+   "Line Item Subset members need Boolean formatting before they can be referenced",
+   "A Line Item Subset is not available as a module dimension, which leaves ITEM() no list to read"
+  ],
+  "ans": 1,
+  "exp": "BA Practice Guidelines (Line Item Subsets): only numeric line items are allowed, only one LIS per module can be a dimension, and only COLLECT() works; ITEM(LIS) and name references do not. Planual 1.07-03: keep summaries off on Collect() line items."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "Regional finance managers must enter monthly budgets against 800 cost centers and analyze them in different arrangements. Which page type should the page builder choose?",
+  "opts": [
+   "A board, so the managers also get KPI charts on the same page",
+   "A worksheet, which supports editing, filtering and rearranging larger datasets",
+   "A board with one grid card holding the 800 cost centers for the managers to edit",
+   "A report page, using its slide formatting for the data entry"
+  ],
+  "ans": 1,
+  "exp": "Planual 4.01-05: use Worksheets for entering or editing large datasets and pivoting. 4.01-04: Boards suit KPIs, graphs and landing pages with smaller datasets. Report pages cannot be edited (BA Practice Guidelines)."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "A page designed on a wide monitor will also be used by field sales reps on phones. What does the Planual recommend?",
+  "opts": [
+   "Add a navigation button for each section so the page splits across several screens",
+   "Build the page at the builder's own screen size and test on phones afterwards",
+   "Reuse the desktop page and let phone users scroll horizontally across the wide grids",
+   "Flow elements left to right in each board row, and consider a separate mobile app"
+  ],
+  "ans": 3,
+  "exp": "Planual 4.01-06: for mobile, flow page elements left to right within each board row and consider a separate app. 4.02-02 says avoid horizontal scrolling, and 4.02-03 says build for the smallest screen users will use, not your own."
+ },
+ {
+  "cat": "ux",
+  "multi": true,
+  "q": "A landing page is crowded with action buttons that refresh the page and others that move between pages, and users find it cluttered. Which two actions follow Planual guidance?",
+  "opts": [
+   "Keep the buttons but move them below the fold of the page",
+   "Group the buttons into one card to reduce the clutter",
+   "Replace the page-to-page buttons with the App menu or module hyperlinks",
+   "Replace the refresh buttons with an import action that reloads the data",
+   "Show users the toolbar Refresh option and drop the refresh buttons"
+  ],
+  "ans": [
+   2,
+   4
+  ],
+  "exp": "Planual 4.02-07: use the App Menu or module hyperlinks for navigation rather than buttons. 4.02-08: educate users to use the Refresh option in the toolbar rather than action refresh buttons."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "A board gives end users an action button that deletes list members so they can tidy their own data. What should be done?",
+  "opts": [
+   "Take the button off the page and handle list member maintenance in an administration process",
+   "Add a confirmation text card above the button to warn users first",
+   "Restrict the button to one section of the app",
+   "Publish the button as a standalone action, which is easier to audit"
+  ],
+  "ans": 0,
+  "exp": "Planual 4.02-12: avoid delete action buttons on dashboards for end users, who could delete historical data. Keep list element maintenance in the administration process."
+ },
+ {
+  "cat": "taw",
+  "multi": false,
+  "q": "A team is collecting requirements, writing user stories, prioritizing them by complexity and effort, playing planning poker and assigning stories to sprint buckets. Which Anaplan Way phase is this?",
+  "opts": [
+   "Implementation",
+   "Pre-Release",
+   "Foundations",
+   "Testing"
+  ],
+  "ans": 2,
+  "exp": "BA Practice Guidelines (The Anaplan Way): Foundations covers the rough-cut SOW, project planning and sprint planning, which includes collecting requirements, writing and prioritizing user stories, planning poker and assigning sprint buckets."
+ },
+ {
+  "cat": "taw",
+  "multi": false,
+  "q": "During design workshops, developers define the approval steps themselves because the business approvers are rarely available. Which cornerstone is most at risk?",
+  "opts": [
+   "Deployment",
+   "Model",
+   "Data",
+   "Process"
+  ],
+  "ans": 3,
+  "exp": "BA Practice Guidelines: the Process cornerstone is about defining the business workflow first and leveraging industry best practice. Anaplan guides, it's not the process owner."
+ },
+ {
+  "cat": "taw",
+  "multi": true,
+  "q": "Go-live is three weeks away. Production data is loaded, users are set up in the model and the model documentation is stored, but nothing has been arranged for the business side of the launch. Which two Deployment cornerstone activities are still missing?",
+  "opts": [
+   "Setting up the users in the model",
+   "Communicating the roll-out schedule and resources",
+   "Loading production data into the Data Hub and spoke models",
+   "Completing the model documentation and storing it for the project team",
+   "Training the end users"
+  ],
+  "ans": [
+   1,
+   4
+  ],
+  "exp": "The Anaplan Way, 4 Cornerstones Activities by Phase (Deployment phase): the Deployment cornerstone covers communicating the roll-out schedule and resources, training end users, rolling out the model, communicating project success and gathering user feedback. Loading production data is a Data activity, and setting up users and completing documentation are Model activities. The scenario says those three are already done."
+ },
+ {
+  "cat": "taw",
+  "multi": false,
+  "q": "At the end of each sprint, the team wants business stakeholders to see the completed stories and confirm they meet expectations. Which Anaplan Way event covers this?",
+  "opts": [
+   "Daily stand-up",
+   "Sprint review",
+   "Retrospective",
+   "Planning poker"
+  ],
+  "ans": 1,
+  "exp": "BA Practice Guidelines: Implementation includes sprint execution, daily stand-ups, sprint reviews, a final all-sprint review and a retrospective. Sprint reviews, with sprint re-planning, are where completed work is shown to the business."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "Midway through the sprints, the business raises an important need that was never captured during planning. What fits The Anaplan Way?",
+  "opts": [
+   "Restart Pre-Release to re-scope the whole project and re-sign the SOW with the customer",
+   "Hold it until the Testing phase and raise it as a defect during the first UAT round",
+   "Write it up as a user story, rank it against the other stories with the product owner, and place it in a sprint bucket at re-planning",
+   "Build it straight away in the current sprint to show the business quick progress"
+  ],
+  "ans": 2,
+  "exp": "BA Practice Guidelines: requirements become user stories that are prioritized by complexity and level of effort and assigned to sprint buckets; sprint reviews and sprint re-planning are how the buckets are managed."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "A sponsor wants every request included in release one. What does The Anaplan Way suggest?",
+  "opts": [
+   "Keep release-one stories short and focused on core needs, and use later releases for complex needs",
+   "Reject every request that is not already in the SOW, since release one is fixed at signing",
+   "Add a second builder to fit the requests into release one",
+   "Accept everything for release one and trim the scope during UAT based on the defects found"
+  ],
+  "ans": 0,
+  "exp": "Anaplan Community article on The Anaplan Way: lay the foundation in the first phase and use future phases for more complex business requirements, and keep first-release user stories short and focused rather than trying to boil the ocean."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "UAT surfaced defects and the business is not yet satisfied, with go-live four days away. What should happen?",
+  "opts": [
+   "Skip the second UAT round and move the defects into the next release",
+   "Fix and retest the defects, and make the Go/No Go decision only once the business accepts the results",
+   "Let the model builder sign off on UAT on the business's behalf so the Go/No Go can proceed",
+   "Go live on schedule and log the defects for post-go-live support to fix afterwards"
+  ],
+  "ans": 1,
+  "exp": "BA Practice Guidelines: the Testing phase runs UAT, a fix round, a second UAT, defect management and the Go/No Go decision, ahead of Deployment. The Go/No Go follows an accepted UAT, not the builder's own view."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "A customer plans to hand ongoing model maintenance to one person after go-live. What should the architect recommend?",
+  "opts": [
+   "Build a bench of at least two trained model builders so maintenance continues when one is away",
+   "Keep one builder, but have them document every module in the Planual format",
+   "Rely on the implementation partner for maintenance after go-live",
+   "Add a second builder after the first release has stayed stable for a quarter"
+  ],
+  "ans": 0,
+  "exp": "BA Practice Guidelines (Model cornerstone): design, build, test and maintain, using performant design patterns, with at least two trained model builders."
+ },
+ {
+  "cat": "security",
+  "multi": false,
+  "q": "Each manager should see only their own direct reports in the Employee list, and other employees must not appear at all. Which mechanism fits best?",
+  "opts": [
+   "Dynamic Cell Access with a read driver that locks the cells of other managers' employees",
+   "Marking the Employee list as a Production Data list so managers maintain their own reports",
+   "Selective Access on the Employee list, granting each manager read access to their reports",
+   "A model role that limits each manager to the Employee module they need"
+  ],
+  "ans": 2,
+  "exp": "Anapedia (Selective Access): it restricts access to lists and list items user by user; once enabled, nobody has access until assigned. Dynamic Cell Access limits cell data in modules and grids instead, and roles control modules, lists and actions rather than individual list members."
+ },
+ {
+  "cat": "security",
+  "multi": false,
+  "q": "HR wants Anaplan user accounts to follow the company's identity system automatically as people join and leave. What should be used?",
+  "opts": [
+   "A nightly CloudWorks schedule that imports the Users list from the identity provider",
+   "An ALM synchronization that copies the Users list from DEV to Production each week",
+   "Selective Access rules that remove departing users from every list they could see",
+   "The SCIM API, with the identity provider as the source for creating and deactivating users"
+  ],
+  "ans": 3,
+  "exp": "Anapedia (SCIM): Anaplan's SCIM APIs integrate Anaplan with a SCIM-compliant identity source such as Okta, to create and update users, assign them to workspaces and deactivate them."
+ },
+ {
+  "cat": "security",
+  "multi": false,
+  "q": "Planners may edit months after a lock date, and the lock dates differ by region. Which control fits?",
+  "opts": [
+   "Selective Access on the Time list, assigned planner by planner and region by region",
+   "Dynamic Cell Access with a Boolean write driver dimensioned by Region and Time",
+   "Version Edit From and Edit To dates, set separately for each region in the Versions settings",
+   "A model role that hides the input module after the lock date"
+  ],
+  "ans": 1,
+  "exp": "Planual 1.02-03: Edit To/From is a simple administrator-led control for version access; for more granular control use Dynamic Cell Access. Anapedia: DCA uses Boolean access drivers, which can be dimensioned to the cells being controlled."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "Five spoke models need the same employee data, and each spoke currently imports it from the HR source file. What is the better architecture?",
+  "opts": [
+   "Import into one spoke and chain the other four spokes to import from that spoke",
+   "Load the employee data into every spoke from one shared CSV on a network drive",
+   "Keep the five file imports but schedule them at different times each night to avoid clashes",
+   "Load it once into a Data Hub, validate it, and let each spoke import from a Hub view"
+  ],
+  "ans": 3,
+  "exp": "BA Practice Guidelines (Data Hub): a single source of truth, data validation before it reaches the spokes, and loading from a model is faster than loading from a file. Planual 5.07-06 says master data should be built by the source system, not in the hub."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "A nightly model-to-model import uses a list as its source and re-sends every member each night. What should change?",
+  "opts": [
+   "Switch to a file import and filter the file by hand before each nightly load",
+   "Delete the list each night and reload it so that only new members remain",
+   "Use a saved view of a module as the source, filtered to only the needed records",
+   "Keep the list as the source and add a Boolean filter to the import action to load new members"
+  ],
+  "ans": 2,
+  "exp": "Planual 5.04-08: never use a list as an import source, since it always brings over the whole list. 5.04-09: use saved views for model-to-model imports so filters can limit the data. 1.05-10: never delete and reload a list daily."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "A numbered-list import builds each member's code from customer, invoice date and amount, and the list keeps growing with near-duplicates. What is the fix?",
+  "opts": [
+   "Keep only identifying attributes in the key, leaving dates and amounts as data fields only",
+   "Move the key into a list property so that the imports run faster and use less memory",
+   "Add the posting period to the key to give each month its own members",
+   "Add more value fields to the key so that the near-duplicates become unique"
+  ],
+  "ans": 0,
+  "exp": "Planual 5.04-03: data or time period shouldn't be part of the unique row. 1.05-11: don't embed numeric values or dates in a list code, which inflates list size and model size."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": true,
+  "q": "Planning happens monthly, but the source extract is made up of weekly transactions and the imports are slow. Which two steps does the Planual support?",
+  "opts": [
+   "Summarize the extract to the planning grain in the source system before loading it",
+   "Import the weekly rows into a text line item and parse them with FINDITEM",
+   "Map source fields the import does not need to Ignore",
+   "Import the weekly rows and use a LOOKUP to total them to months",
+   "Import every field as Text so that nothing is lost"
+  ],
+  "ans": [
+   0,
+   2
+  ],
+  "exp": "Planual 5.04-05 and 5.04-06: pre-aggregate in the source and import only the granularity needed. 5.04-04: use the Ignore field for unwanted fields to improve performance and avoid warning logs. 5.04-07: use correct formats, not text."
+ },
+ {
+  "cat": "ado",
+  "multi": false,
+  "q": "A team needs every CRM customer, with ERP columns added where a match exists and blanks otherwise. Which ADO transformation view option fits?",
+  "opts": [
+   "A full outer join that keeps the rows from both datasets",
+   "A lookup join, with the CRM dataset as the primary dataset",
+   "An inner join between the CRM and ERP datasets, joined on the customer key",
+   "A union of the CRM and ERP datasets, stacking customers from both"
+  ],
+  "ans": 1,
+  "exp": "Anapedia (Data Orchestrator): you can apply an inner join or a lookup join. An inner join keeps rows with matching values; a lookup join keeps all rows from the primary dataset and adds columns from the joined dataset. A union stacks datasets instead."
+ },
+ {
+  "cat": "ado",
+  "multi": false,
+  "q": "A Salesforce extract still shows rows that users have deleted in Salesforce. What should be done in ADO?",
+  "opts": [
+   "Cast the isDeleted column with TO_DATE before loading",
+   "Union the dataset with an empty one to flush the deleted rows",
+   "Add a filter transformation that removes rows where isDeleted is TRUE",
+   "Rebuild the source dataset from scratch before each sync of the extract"
+  ],
+  "ans": 2,
+  "exp": "Planual 8.01-06: some source systems, such as Salesforce, do not immediately purge deleted records, so records can still appear in API extracts. Add a filter transformation to remove rows where isDeleted = TRUE."
+ },
+ {
+  "cat": "ado",
+  "multi": false,
+  "q": "A CSV from S3 lands in ADO with every column as a string, and aggregations return errors. What should the builder do?",
+  "opts": [
+   "Link the dataset to the model and let Anaplan convert the string values to numbers during the import",
+   "Union the dataset with a copy whose columns are already typed",
+   "Rename the columns to include spaces so that ADO can detect the data types itself",
+   "Add a transform that casts the columns to the right types, for example with TO_NUMBER"
+  ],
+  "ans": 3,
+  "exp": "Planual 8.01-02: non-structured sources such as local files and S3 deliver every column as a string; create a transform to cast them, because functions such as aggregations depend on column types. 8.02-07 lists TO_NUMBER, TO_DATE and CAST."
+ },
+ {
+  "cat": "workflow",
+  "multi": false,
+  "q": "Inside a monthly forecast workflow template, one step must let the CFO accept, reject or send back the regional manager's work. Which task type fits?",
+  "opts": [
+   "A decision task, with the CFO as the approver",
+   "A hierarchical task listing the CFO's steps",
+   "A group task assigned to the regional managers",
+   "A machine task running the approval action"
+  ],
+  "ans": 0,
+  "exp": "Anapedia (Workflow): decision tasks let a decision-maker accept, reject or send back a task at key points of a process. They must be part of a template or running workflow and can't be created as individual tasks."
+ },
+ {
+  "cat": "workflow",
+  "multi": false,
+  "q": "A workflow step must load data overnight with nobody present to click anything. Which task type fits?",
+  "opts": [
+   "A page task assigned to the integration admin",
+   "A decision task with an automatic approver",
+   "A group task that any assignee can run",
+   "A machine task, driven by an Anaplan action"
+  ],
+  "ans": 3,
+  "exp": "Anapedia (Workflow): machine tasks are driven by Anaplan actions and don't require user interaction. Page tasks are one-off tasks for a single user and group tasks can be completed by any one of the assigned users."
+ },
+ {
+  "cat": "actions",
+  "multi": false,
+  "q": "A builder wants an end-user button to run Create actions for a numbered list, but the process holding those actions will not accept them. What should the builder do?",
+  "opts": [
+   "Publish those actions individually on the page, because they cannot sit in a process",
+   "Split the process so that each part holds one numbered-list action",
+   "Switch the model to Standard mode and offline so the process accepts the numbered-list Create action",
+   "Move the numbered-list Create action into a second process chained to the first"
+  ],
+  "ans": 0,
+  "exp": "Planual 4.02-11 says to publish Process actions rather than imports and exports, but exception 5.01-02a states that actions involving numbered lists (Create, Assign, Copy branch, Delete branch) cannot be placed in a process. Those actions are published on the page individually."
+ },
+ {
+  "cat": "apps",
+  "multi": false,
+  "q": "A page is built on a DEV model and must read from the production model after release. What should the builder use?",
+  "opts": [
+   "Export the page definition and import it into the Production model each release",
+   "Duplicate the page and re-point the cards to the Production model by hand",
+   "ALM for pages, associating both models with the page as potential data sources",
+   "Build the page on Production and copy its cards back to DEV"
+  ],
+  "ans": 2,
+  "exp": "Anapedia (ALM overview): with ALM for pages, workspace administrators can enable multiple models for a page and associate additional models as potential data sources, for example both a development and a production model."
+ }
+];
+const EXAM_B = [
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "For a long timescale, which calculation pattern does the Planual prefer over CUMULATE?",
+  "opts": [
+   "Calc = MOVINGSUM(Data) applied across the full period range",
+   "Calc = Data + PREVIOUS(Calc), because it needs fewer reads",
+   "Calc = Data + POST(Calc) using a one-period offset",
+   "Calc = TIMESUM(Data) on a line item that applies to Time"
+  ],
+  "ans": 1,
+  "exp": "Planual 2.02-10: for long timescales PREVIOUS is faster than CUMULATE because of the number of reads. Exception 2.02-10a: with few periods (year granularity, few years) CUMULATE is faster. POST is only for its specific purpose (2.02-13) and TIMESUM should not be used with Time (2.02-21)."
+ },
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "A line item holds codes and most of its values are blank. Which FINDITEM guard does the Planual give for this case?",
+  "opts": [
+   "IF ISNOTBLANK(Item) THEN FINDITEM(List, Item) ELSE BLANK",
+   "FINDITEM(List, Item) with no guard; blanks return quickly",
+   "FINDITEM(List, IF ISBLANK(Item) THEN BLANK ELSE Item)",
+   "IF ISBLANK(Item) THEN BLANK ELSE FINDITEM(List, Item)"
+  ],
+  "ans": 3,
+  "exp": "Planual 2.02-15: FINDITEM on a blank must traverse the whole list before returning blank. If most values are blank, use IF ISBLANK(...) THEN BLANK ELSE FINDITEM(...); if the line item is dense, use the ISNOTBLANK version; if there are never blanks, no guard is needed."
+ },
+ {
+  "cat": "modeling",
+  "multi": true,
+  "q": "Which two of these functions does the Planual flag as calculation-intensive and unable to multi-thread when used with large lists?",
+  "opts": [
+   "LAG",
+   "ISFIRSTOCCURRENCE",
+   "MOVINGSUM",
+   "MAX",
+   "RANKCUMULATE"
+  ],
+  "ans": [
+   1,
+   4
+  ],
+  "exp": "Planual 2.02-20: RANK can't multi-thread and performs poorly with large lists, and the same applies to RANKCUMULATE and ISFIRSTOCCURRENCE. MOVINGSUM and LAG are the more efficient choices the Planual points to for offsets (2.02-13); it does not flag the others."
+ },
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "TEXTLIST() uses a lot of memory. Which alternatives does the Planual suggest?",
+  "opts": [
+   "A two-dimensional module of Boolean flags with ANY, or FIRSTNONBLANK or LASTNONBLANK",
+   "CODE() joins performed on the largest list in the module, then split by delimiter",
+   "A list property on each member that stores the combined text for that member",
+   "Nested IF statements that concatenate each text value one after another in the same line item"
+  ],
+  "ans": 0,
+  "exp": "Planual 2.02-11: avoid TEXTLIST() because it requires a lot of memory. Use two-dimensional modules with Boolean flags and ANY, or FIRSTNONBLANK and LASTNONBLANK. Text strings generally need caution (2.02-04) and list properties are discouraged (1.05-03)."
+ },
+ {
+  "cat": "modeling",
+  "multi": false,
+  "q": "Per Planual 2.02-21, which options replace TIMESUM in a line item that applies to Time?",
+  "opts": [
+   "RANKCUMULATE combined with ISFIRSTOCCURRENCE across the periods",
+   "POST or LAG, which offset the line item by a fixed number of periods",
+   "MOVINGSUM, YEARTODATE, or SELECT: Time. All Periods",
+   "TEXTLIST wrapped around the names of the periods"
+  ],
+  "ans": 2,
+  "exp": "Planual 2.02-21: don't use TIMESUM in a line item that applies to Time, because the calculation is duplicated for each time period. Use MOVINGSUM, YEARTODATE or SELECT: Time. All Periods instead."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "At a minimum, which line items should a hierarchy's System module hold for standing data?",
+  "opts": [
+   "Code and parent",
+   "Top level flag and a counter",
+   "Name and display name",
+   "Summary method and format"
+  ],
+  "ans": 0,
+  "exp": "Planual 2.01-08: each major hierarchy should have a System module for all standing data and attributes at all levels; at a minimum include the code and parent as line items. Exception 2.01-08a: not needed if the hierarchy isn't referenced in a formula, filter or selector module."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "What does the Planual say about using Select Levels together with filters on the same hierarchy?",
+  "opts": [
+   "Apply the filters first and Select Levels second to cut the overall calculation time",
+   "It is a concern only in Polaris models, where the filters are applied twice",
+   "Combine them; Select Levels reduces the rows that the filter then reads",
+   "Avoid it, since both are applied and form a double filter on the view; use one or the other"
+  ],
+  "ans": 3,
+  "exp": "Planual 2.01-14: avoid Select Levels and filters together on the same hierarchy, because both are kicked off. A Boolean line item in a System module with a summary of None achieves the same result."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "Where does the Planual say the Boolean logic behind cell-level read and write access should be built?",
+  "opts": [
+   "In a list property on the Users list, with one property for each driver",
+   "In separate modules, one for each relevant combination, so the logic is reused",
+   "As Boolean line items placed inside each module that is being controlled by the driver",
+   "In the module's default view, using conditional formatting rules for each user"
+  ],
+  "ans": 1,
+  "exp": "Planual 2.01-17: create separate modules for access drivers for the relevant combinations. This helps maintenance and can decrease repeated logic; use different line items for different settings if needed."
+ },
+ {
+  "cat": "design",
+  "multi": true,
+  "q": "Which two uses of subsidiary views are acceptable exceptions in the Planual?",
+  "opts": [
+   "Ratio formulas that need a specific dimensional context",
+   "Calculation modules that mix several different dimensionalities",
+   "A permanent substitute for the standard module view",
+   "A shortcut for adding dimensions the module lacks",
+   "Reporting and export modules that expose chosen line items"
+  ],
+  "ans": [
+   0,
+   4
+  ],
+  "exp": "Planual 2.01-06 (exceptions a-e): displaying attributes on pages for analysis or filtering, ratio formulas, synchronization for pages, sorting line items, and reporting/export modules. Otherwise group calculation modules by like dimensionality (2.01-12)."
+ },
+ {
+  "cat": "design",
+  "multi": false,
+  "q": "What does the Planual say about dimension order in Classic modules?",
+  "opts": [
+   "Put the largest list first in every module so that the engine reads fewer blocks",
+   "Put the smallest list first so that the engine scans fewer members per block",
+   "Keep it consistent across modules; order matters more than list size",
+   "Order has no effect on speed, so choose whatever suits the page layout best"
+  ],
+  "ans": 2,
+  "exp": "Planual 2.01-11: consistent dimension order across modules speeds up calculations; the size of the list isn't as critical as the order. In Polaris, dimension order does not matter (Polaris 2.01-02)."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "Which action is blocked in a model in Deployed mode, even for workspace administrators?",
+  "opts": [
+   "Adding members to a Production Data list through a page",
+   "Making structural changes, such as adding a line item",
+   "Running an import or a process that is published on a page",
+   "Editing cell data in an input module that is open to end users"
+  ],
+  "ans": 1,
+  "exp": "Anapedia (model modes and ALM overview): Deployed mode blocks any modifications to structural information, and production users including workspace administrators can only modify data. It is also not possible to add revision tags in Deployed mode."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "Which model mode makes a model read-only for all users, including workspace administrators?",
+  "opts": [
+   "Deployed",
+   "Standard",
+   "Archived",
+   "Locked"
+  ],
+  "ans": 3,
+  "exp": "Anapedia (model modes): Locked mode makes a model read-only for all users including workspace administrators. Deployed blocks structural changes only, Archived stores the model without counting toward the workspace allowance, and Standard gives full access."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "What is notable about a revision tag's description once the tag has been saved?",
+  "opts": [
+   "It is permanent and cannot be changed",
+   "It resets after each synchronization",
+   "It can be edited only while the model is in Standard mode",
+   "It is hidden from other developers until the tag is synchronized"
+  ],
+  "ans": 0,
+  "exp": "Planual 6.01-01: use Major.Minor naming (R1.01, R1.02, R2) and be careful, because the description is permanent and can't be changed. 6.01-03 suggests keeping fuller revision documentation in a normal, non-production list."
+ },
+ {
+  "cat": "alm",
+  "multi": true,
+  "q": "Which two changes made in DEV reach Production only when a revision tag is created and synchronized?",
+  "opts": [
+   "Changing the formula of a calculation line item",
+   "Running a saved process from a page",
+   "Adding a line item to an existing module",
+   "Editing a cell value in an input module",
+   "Importing members into a Production Data list"
+  ],
+  "ans": [
+   0,
+   2
+  ],
+  "exp": "Anapedia (ALM overview): structural changes move from a source model to a target through revision tags and Compare and Synchronize, while production users can only change data in Production. Cell edits, imports and running processes are data activity, not structure."
+ },
+ {
+  "cat": "alm",
+  "multi": false,
+  "q": "What is the Planual's exception to never taking a Production model out of Deployed mode?",
+  "opts": [
+   "Adding a new page for end users in the production model before a release",
+   "Making an urgent fix to a formula in a calculation module of the production model",
+   "Copying Production to create the initial ALM environment, or resetting DEV",
+   "Restoring the production model from an archive after maintenance work"
+  ],
+  "ans": 2,
+  "exp": "Planual 6.03-01 and exception 6.03-01a: once ALM is initiated and Deployed mode is on, never take Production out of it, except when copying Production to create the initial ALM environment or recreating DEV as a reset. There are no other valid exceptions. Restored Production or Test models should be set back to Deployed (6.05-03)."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "A module is dimensioned by Product (500 members), Region (20 members) and Month (24 periods). How many cells does each line item have?",
+  "opts": [
+   "120,000",
+   "10,000",
+   "544",
+   "240,000"
+  ],
+  "ans": 3,
+  "exp": "Cell count per line item is the product of the dimension sizes: 500 x 20 x 24 = 240,000. Model Info shows the model's cell count and size, and data is stored in blocks per line item (BA Practice Guidelines)."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "Which restriction applies to a Line Item Subset?",
+  "opts": [
+   "It can include only numeric line items",
+   "Its members must be created as a numbered list first",
+   "It can be used only once in the whole model",
+   "It can include only Boolean line items"
+  ],
+  "ans": 0,
+  "exp": "BA Practice Guidelines (Line Item Subsets): only numeric line items are allowed, only one LIS can be used per module as a dimension, line item formats don't carry over, and members can't be referenced by name; only COLLECT() works."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "Per the Planual, what should be in place when members of a numbered list are created or assigned through actions?",
+  "opts": [
+   "A list property that holds a combined key built from several columns",
+   "A code, using a code creation action as part of the process",
+   "A display name formatted as text, with no separate code column",
+   "A parent member to roll each item up into the right group"
+  ],
+  "ans": 1,
+  "exp": "Planual 1.05-04: numbered lists should always have a code; for Create or Assign actions, add a code creation action. Exception 1.05-04a: if no code exists in the source, a combination of properties may be used, though it is slower. See also 1.05-02."
+ },
+ {
+  "cat": "datamodel",
+  "multi": false,
+  "q": "How should timescale subtotals such as Quarter totals, YTD and YTG be set by default?",
+  "opts": [
+   "Left on in the modules that period-end reporting will eventually use",
+   "Included for modules that are dimensioned by Versions and Time together",
+   "Excluded unless a module needs them, because they add overhead to every module that uses the model calendar",
+   "Enabled in Calculation modules and disabled in Output modules for performance"
+  ],
+  "ans": 2,
+  "exp": "Planual 1.01-05: turn the 'include' settings off by default and only include them if absolutely necessary, since they appear in all modules with the model calendar as the time dimension."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "Which UX page type cannot be used to edit data?",
+  "opts": [
+   "Report",
+   "My Pages view",
+   "Worksheet",
+   "Board"
+  ],
+  "ans": 0,
+  "exp": "BA Practice Guidelines (Pages): Reports present structured sets of slides with robust formatting, but data cannot be edited. Worksheets display large editable grids and Boards combine cards, including editable grid cards. Anapedia lists three UX page types: Worksheet, Board and Report."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "If two filters are defined on the same filter tab of a view, how does the engine apply them?",
+  "opts": [
+   "Using an OR condition across the two filters on that tab",
+   "Simultaneously, with each filter reading the full data set independently of the other",
+   "Only the last filter listed is applied, and the earlier ones are ignored",
+   "Sequentially: the second filter is applied to the result set of the first"
+  ],
+  "ans": 3,
+  "exp": "Planual 4.03-01 and 2.04-02: multiple filters on the same tab are read sequentially, which can hurt performance. Use a single Boolean condition, combining conditions into one line item first."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "How does the Planual say to filter time on pages?",
+  "opts": [
+   "With a fixed Time Range defined on each page",
+   "With a subsidiary view that lists the visible periods",
+   "With the Time Settings module, because Show/Hide for time is static",
+   "With Show/Hide, which follows the model calendar as it changes"
+  ],
+  "ans": 2,
+  "exp": "Planual 4.03-03: use time filters on all pages, but don't use Show/Hide for time, which is static. Use the Time Settings module so the filtering is dynamic when the model calendar changes (see also 2.01-07)."
+ },
+ {
+  "cat": "ux",
+  "multi": false,
+  "q": "Why does the Planual prefer publishing Process actions over Import or Export actions on pages?",
+  "opts": [
+   "Processes avoid a separate recalculation after each action they contain",
+   "Processes stay consistent with their contents, while imports and exports need republishing when changed",
+   "Processes run noticeably faster than single imports and exports of the same data",
+   "Processes can include numbered-list Create and Assign actions for end users"
+  ],
+  "ans": 1,
+  "exp": "Planual 4.02-11 and 5.01-02: import and export actions need to be republished if modified or replaced, while process actions stay consistent with what the process holds. Numbered-list actions can't go in a process (5.01-02a), and each action in a process triggers a recalculation (5.02-02)."
+ },
+ {
+  "cat": "taw",
+  "multi": false,
+  "q": "Which sequence lists The Anaplan Way phases in order?",
+  "opts": [
+   "Pre-Release, Implementation, Foundations, Testing, Deployment",
+   "Pre-Release, Foundations, Implementation, Testing, Deployment",
+   "Pre-Release, Foundations, Testing, Implementation, Deployment",
+   "Foundations, Pre-Release, Implementation, Deployment, Testing"
+  ],
+  "ans": 1,
+  "exp": "BA Practice Guidelines (The Anaplan Way): Pre-Release, Foundations, Implementation, Testing, Deployment, with the four cornerstones (Process, Model, Data, Deployment) running across them."
+ },
+ {
+  "cat": "taw",
+  "multi": false,
+  "q": "Which set names the four cornerstones of The Anaplan Way?",
+  "opts": [
+   "Design, Build, Test, Deployment",
+   "People, Process, Model, Data",
+   "Process, Model, Data, Deployment",
+   "Process, Model, Integration, Governance"
+  ],
+  "ans": 2,
+  "exp": "BA Practice Guidelines and Anaplan Community: the cornerstones are Process, Model, Data and Deployment. Don't confuse the Deployment cornerstone with the Deployment phase."
+ },
+ {
+  "cat": "taw",
+  "multi": true,
+  "q": "Which two activities belong to the Foundations phase?",
+  "opts": [
+   "Playing planning poker to estimate user stories",
+   "Writing user stories from collected requirements",
+   "Performing system integration testing with the connected systems",
+   "Holding the All Sprint Retrospective before the Testing phase begins",
+   "Running the daily stand-up with the whole scrum team each morning"
+  ],
+  "ans": [
+   0,
+   1
+  ],
+  "exp": "BA Practice Guidelines: sprint planning in Foundations includes writing the manifesto, collecting requirements, writing user stories, prioritizing by complexity and level of effort, planning poker and assigning sprint buckets. Daily stand-ups and the all-sprint review are Implementation; SIT is Testing."
+ },
+ {
+  "cat": "taw",
+  "multi": false,
+  "q": "Which activity is part of the Implementation phase rather than Testing or Deployment?",
+  "opts": [
+   "Performance testing",
+   "Go/No Go decision",
+   "Post go-live monitoring",
+   "Daily stand-up"
+  ],
+  "ans": 3,
+  "exp": "BA Practice Guidelines: Implementation covers sprint execution, design/build/test, daily stand-ups, sprint reviews, data integration, the final all-sprint review and a retrospective. Go/No Go and performance testing belong to Testing; monitoring belongs to Deployment."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "Why does the Planual advise against using a list as an import source?",
+  "opts": [
+   "It brings over the entire list on every run, not just recently added members",
+   "List imports run only when the model is in Standard mode and not in Deployed mode",
+   "Lists are not exported to another model while the source model is open",
+   "A list source ignores the code and parent columns, so members lose structure"
+  ],
+  "ans": 0,
+  "exp": "Planual 5.04-08: import sources should be a module view or a file. Using a list always brings over the entire list, and 5.04-09 adds that saved views allow filtering so only needed data is imported."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "What list structure does the Planual recommend for a Data Hub?",
+  "opts": [
+   "Composite hierarchies matching each planning model so that the hub mirrors its spokes",
+   "Numbered lists with a top level for validation totals across transactions",
+   "Flat lists, with hierarchies kept in the main planning models",
+   "Ragged hierarchies mirroring the structure of each source system"
+  ],
+  "ans": 2,
+  "exp": "Planual 5.07-01: no hierarchies in the Hub (acceptable only for validation or combining source feeds), and 1.05-13 and 5.07-03 recommend flat lists. 5.07-09 also says to avoid a top level on large transaction lists."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "A module feeds two different imports. Why does the Planual suggest creating a separate view for each?",
+  "opts": [
+   "A process can't use the same view twice, and fewer columns export faster than wide views",
+   "Views lose their filters when a second action uses them in the same process",
+   "Each import action locks its source view until the process completes",
+   "A view can feed only one import action in each model, so a second needs its own"
+  ],
+  "ans": 0,
+  "exp": "Planual 5.05-02: include only what is needed and create multiple views if the module is used for different imports, as a process can't reference the same view multiple times. The number of columns affects export and import speed."
+ },
+ {
+  "cat": "datamgmt",
+  "multi": false,
+  "q": "Why does the Planual advise keeping the number of actions in a process to a minimum?",
+  "opts": [
+   "Actions in a process run one user at a time",
+   "Each action in a process triggers a recalculation of the model afterwards",
+   "Each action in a process needs its own revision tag",
+   "A process can hold only ten actions"
+  ],
+  "ans": 1,
+  "exp": "Planual 5.02-02: keep actions in a process to a minimum, because each action triggers a recalculation. 5.01-03 also says to keep user-driven actions to a minimum and consider the effect on user concurrency."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "A list is cleared and reloaded every day. What does the Planual recommend instead?",
+  "opts": [
+   "Reload it weekly instead of daily and keep the same delete step",
+   "Keep reloading it, but run the import before midnight when fewer users are in the model",
+   "Convert it to a subset and reload the parent list each night",
+   "Update values using a unique key, rather than deleting and reloading the list"
+  ],
+  "ans": 3,
+  "exp": "Planual 1.05-10: never delete a list and reload it as a daily occurrence. It increases structural changes and import time and removes pre-allocated memory blocks. Use a unique key to update values, optionally with a TRUE field in the source to track imported records."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "During periods of intense development, how often does the Planual say to create revision tags?",
+  "opts": [
+   "Once per sprint, straight after the sprint review with the business",
+   "Once a week, after the Monday stand-up with the scrum team",
+   "At least once a day, testing them against a shell model",
+   "Only when a release is fully tested and ready for Production"
+  ],
+  "ans": 2,
+  "exp": "Planual 6.01-02: create a revision tag at least once a day during intense development and test against a 'shell' model. 6.01-04 adds that you should synchronize Production regularly to reduce the risk of sync errors."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "How does the Planual describe a 'shell' test model?",
+  "opts": [
+   "A model built with Create from Revision and holding no Production list members or their data",
+   "A restored archive of DEV that is left in Standard mode for testers",
+   "A model built by exporting DEV modules and importing them into a blank model",
+   "A copy of Production with its data cleared before each test cycle"
+  ],
+  "ans": 0,
+  "exp": "Planual 6.01-05: set up a 'shell' model, using create from revision, that contains no production list members, on which to test revisions and synchronize regularly."
+ },
+ {
+  "cat": "impl",
+  "multi": false,
+  "q": "How does the Planual say to keep the development model small?",
+  "opts": [
+   "Create DEV from Production using Create from Revision to keep the same structure",
+   "Load only a selection of production list items, populated from Data Hub views for testing",
+   "Set every list to Production Data so that no members are loaded into DEV",
+   "Delete line items that hold no data in DEV before each synchronization"
+  ],
+  "ans": 1,
+  "exp": "Planual 6.05-04: use only a selection of items from production lists, and use 'create from revision' to create the Dev model; do not create Dev from a Production model that way, as that creates a new revision in Production that will be out of sync with Dev. 6.05-05: use Data Hub saved views to populate Dev."
+ },
+ {
+  "cat": "security",
+  "multi": false,
+  "q": "A line item has a Write access driver of TRUE and a Read access driver of FALSE. What access applies?",
+  "opts": [
+   "No write and no read, because the FALSE Read driver blocks all access",
+   "No write and yes read, because the Write driver is overridden by the Read driver",
+   "Yes write and no read, because the two drivers apply independently",
+   "Yes write and yes read, since a Write driver also gives read access"
+  ],
+  "ans": 3,
+  "exp": "Anapedia (Dynamic Cell Access): with Write true and Read false the result is yes write, yes read; a write driver gives read access. Access drivers are Boolean line items with a summary of All, Any, None or Formula."
+ },
+ {
+  "cat": "security",
+  "multi": false,
+  "q": "What happens when Selective Access is enabled on a list?",
+  "opts": [
+   "The list members are hidden from workspace administrators as well as from other users",
+   "All users keep read access until write access is assigned list by list",
+   "Nobody has access until it is assigned, but workspace admins can still amend the list",
+   "Users with the same model role as the list creator keep their access"
+  ],
+  "ans": 2,
+  "exp": "Anapedia (Selective Access): by default no users have access once it is enabled; workspace administrators can open the list to view and amend items, while other users can't read or write until they are assigned access."
+ },
+ {
+  "cat": "security",
+  "multi": false,
+  "q": "Which account does Anaplan recommend for calling the SCIM API?",
+  "opts": [
+   "A tenant Integration Admin who signs in through SSO",
+   "An SSO user with the Workspace Administrator role",
+   "A Planner using a personal API key",
+   "An active, non-SSO user who holds the User Admin role in the tenant"
+  ],
+  "ans": 3,
+  "exp": "Anapedia (SCIM): create an active, non-SSO user account and assign it the User Admin role to call the SCIM API. Be aware that a later sync from the identity provider can overwrite changes made directly in the Anaplan administration UI."
+ },
+ {
+  "cat": "ado",
+  "multi": true,
+  "q": "Which two statements describe a union in a Data Orchestrator transformation view?",
+  "opts": [
+   "It requires the two datasets to have no columns in common",
+   "It keeps the rows whose values appear in both datasets",
+   "It adds the rows of one dataset to the other",
+   "It removes duplicate values from the combined datasets",
+   "It matches rows on a shared column and keeps the primary dataset's rows"
+  ],
+  "ans": [
+   2,
+   3
+  ],
+  "exp": "Anapedia (Add a data source to a transformation view): a union combines values from two datasets so more rows can be added to the view, and it removes duplicate values from the datasets. Matching on a shared column describes a lookup join, and keeping only matching rows describes an inner join."
+ },
+ {
+  "cat": "ado",
+  "multi": false,
+  "q": "Why must a Data Orchestrator join have at least one matching column?",
+  "opts": [
+   "To prevent an accidental cartesian product between two very large datasets in the join",
+   "To let ADO decide between an inner join and a lookup join",
+   "To keep the column names unique in the combined transformation view",
+   "To cast the join key to a numeric type before matching rows"
+  ],
+  "ans": 0,
+  "exp": "Planual 8.02-04: there must be at least one matching column when joining two datasets. If a cartesian product is truly needed, add a calculated column with the same constant value to both datasets. 8.02-06: joins use equal values only, not expressions."
+ },
+ {
+  "cat": "ado",
+  "multi": false,
+  "q": "How many characters of the HASH function's output does the Planual say are safe to keep for about one million items?",
+  "opts": [
+   "56",
+   "15",
+   "20",
+   "10"
+  ],
+  "ans": 1,
+  "exp": "Planual 8.02-02: HASH returns a deterministic 56-character key that can safely be shortened: 10 characters for up to 1,000 items, 15 for up to 1 million, and 20 for up to 1 billion."
+ },
+ {
+  "cat": "workflow",
+  "multi": false,
+  "q": "Which Workflow task type is assigned to several users but can be completed by any one of them?",
+  "opts": [
+   "Hierarchical task",
+   "Machine task",
+   "Page task",
+   "Group task"
+  ],
+  "ans": 3,
+  "exp": "Anapedia (Workflow): a group task is assigned to a group of users and any one of them can complete it. A page task is a one-off task for a single user, a hierarchical task is a sequence of dependent tasks, and a machine task is driven by an Anaplan action."
+ },
+ {
+  "cat": "workflow",
+  "multi": false,
+  "q": "Which limitation applies to a decision task in Workflow?",
+  "opts": [
+   "It must be part of a template or its running workflow, not a standalone task",
+   "It can be assigned to only one approver at a time in each workflow template you build",
+   "It can be created only from the mobile app by the workflow owner",
+   "It must be the first step of every template that uses an approval"
+  ],
+  "ans": 0,
+  "exp": "Anapedia (Workflow): a decision task must be part of a template or its running workflow and can't be created as an individual task. Approvers can be entered manually or taken from a line item in a module."
+ },
+ {
+  "cat": "actions",
+  "multi": false,
+  "q": "What does the Planual say to do with an import that was needed only once?",
+  "opts": [
+   "Keep it, renamed with a date prefix, in case it is needed again",
+   "Set its source view as the default view for later reuse",
+   "Delete the import and its data source to keep the model clean",
+   "Move it into a process alongside the regular imports"
+  ],
+  "ans": 2,
+  "exp": "Planual 5.01-04: delete one-off imports and their data sources to maintain a clean model. 5.06-02 also says to delete import sources when they're no longer required."
+ },
+ {
+  "cat": "apps",
+  "multi": false,
+  "q": "A model builder can edit modules in the workspace but cannot create content in the UX. Which tenant role is missing?",
+  "opts": [
+   "Workspace Administrator",
+   "Page Builder",
+   "Integration Admin",
+   "Workflow Admin"
+  ],
+  "ans": 1,
+  "exp": "BA Practice Guidelines (Roles): the tenant roles include Page Builder, Integration Admin and Workflow Admin; Workspace Administrator is a workspace role. Anapedia: Data Orchestrator access needs the Integration Admin role, and Workflow creation needs the Workflow Owner role."
+ }
 ];
 
-const EXAM2 = [
-{cat:"modeling",multi:false,
-q:"A line item references an upstream line item that is recalculated rarely and used in many downstream formulas. What does the Planual recommend regarding this pattern?",
-opts:["Use PREVIOUS() to cache the upstream value and avoid recalculating it", "Make it a dedicated intermediate line item that every downstream formula references", "Move the upstream calculation into a saved view to speed up recalculation", "Embed the upstream calculation directly in each downstream formula to cut dependencies"],
-ans:1,
-exp:"Planual rule 2.02-19 states: don't daisy-chain data — always refer back to the ultimate source. And rule 2.02-18 recommends breaking formulas into intermediate line items that are referenced multiple times. A shared intermediate line item is recalculated once and referenced many times — far more efficient than embedding the calculation repeatedly."},
+const EXAMS = {
+  examA: { label: 'Exam A', title: 'Scenario-based', desc: '45 questions · applied scenarios across all categories', questions: EXAM_A },
+  examB: { label: 'Exam B', title: 'Technical',      desc: '45 questions · rules, features and functions across all categories', questions: EXAM_B }
+};
 
-{cat:"modeling",multi:false,
-q:"What is the Planual's recommendation for handling FINDITEM() on a line item that frequently contains blank values?",
-opts:["Rely on FINDITEM() to handle blank values natively, with no special treatment needed", "Replace FINDITEM() with SELECT() so that blank values are handled safely and more quickly in lookups", "If most values are blank, use IF ISBLANK(line item) THEN BLANK ELSE FINDITEM(list, line item)", "Always wrap FINDITEM() in ISBLANK(), regardless of how often the values are blank"],
-ans:2,
-exp:"Planual rule 2.02-15 addresses FINDITEM on blanks. When the majority of values ARE blank, the guard should prevent FINDITEM from traversing the entire list unnecessarily: IF ISBLANK(x) THEN BLANK ELSE FINDITEM(...). If most values are NOT blank, the inverse guard is used instead."},
-
-{cat:"modeling",multi:true,
-q:"A model builder is optimizing a module with a complex multi-condition IF statement. Which two Planual recommendations apply?",
-opts:["Place the most commonly true condition first in the IF formula", "Add a conditional that stops evaluation once a condition is satisfied", "Keep one long formula, because sub-expressions always slow the module down", "Use TEXTLIST() to convert the conditions into one text-based test", "Nest all conditions inside one IF statement to keep the logic readable"],
-ans:[0, 1],
-exp:"Planual rules 2.02-16 and 2.02-17 apply here. Rule 2.02-16: include conditionals to prevent further processing once a condition is satisfied. Rule 2.02-17: put the most commonly true condition first in the formula — the engine evaluates from left to right and exits early when possible."},
-
-{cat:"modeling",multi:false,
-q:"A model contains a Boolean line item used as a flag to identify active products. It currently has a format of Number with values 0 and 1. What is the Planual-recommended fix?",
-opts:["Change it to Boolean format, cutting memory from 8 bytes to 1 byte per cell", "Add a SUM summary method so the flag also counts the active products", "Leave it as Number, since Boolean and Number behave identically in formulas", "Convert the values to Text (\"Active\"/\"Inactive\") so the flag is easier to read"],
-ans:0,
-exp:"Boolean cells consume 1 byte per cell vs. 8 bytes for Number cells. Using Number format for flag logic wastes 8x the memory. The Planual recommends using Boolean format for all flag/condition line items. This is a straightforward and high-impact optimization in large models."},
-
-{cat:"modeling",multi:false,
-q:"A model builder wants to reference a specific list member directly in a formula using IF ITEM(Products) = Products.Widget THEN ... What does the Planual recommend instead?",
-opts:["Replace it with a Boolean line item in a SYS module that flags the relevant member", "Use SELECT() to reference the member dynamically inside the formula", "Keep the pattern, since direct list member references are efficient and easy to audit", "Store the member name as a text constant and look it up with FINDITEM()"],
-ans:0,
-exp:"Planual rule 2.02-12 prohibits hardcoding direct references to list members in formulas. Instead, use a Boolean line item in a System module to flag the relevant member(s). This makes the model dynamic — multiple members can share the same logic — and eliminates fragile hardcoded references."},
-
-{cat:"design",multi:false,
-q:"A model architect finds that a Calculations module is dimensioned by seven lists plus Time and Versions. What is the most important concern this raises?",
-opts:["The cell count could become very large, hurting performance and memory", "Anaplan caps modules at seven lists, so more dimensions cannot be added", "The module name does not follow the DISCO naming conventions for calculations", "Calculation modules are not meant to carry a Time dimension in any case"],
-ans:0,
-exp:"Every additional dimension multiplies the cell count. A module with 7 lists plus Time and Versions could have billions of cells — an extreme performance and workspace size risk. Planual rule 2.01-20 emphasizes using only the dimensions a calculation actually needs. This module almost certainly needs to be decomposed."},
-
-{cat:"design",multi:false,
-q:"In DISCO, which module type is designed specifically for end users to consume calculated outputs, and may introduce dimensions not present in the upstream calculation modules?",
-opts:["Calculations (C) module", "System (S) module", "Output (O) module", "Data (D) module"],
-ans:2,
-exp:"Output (O) modules present results to end users and may include different dimensionality — for example, a flattened or summarized view compared to the detailed Calculation modules that feed them. They are the UX-facing layer of the model architecture."},
-
-{cat:"design",multi:true,
-q:"A model review identifies a module with line items that have hardcoded references to specific list members and values. Which two Planual rules are being violated?",
-opts:["2.02-12 — avoid direct references to list members in formulas", "2.01-16 — use Data Tags to signify the DISCO category of each module", "2.01-12 — line items in a module should share the same dimensionality", "2.01-19 — Time and Versions should be first in dimension order", "2.02-14 — avoid hardcoding values by using SELECT in formulas"],
-ans:[0, 4],
-exp:"Planual rule 2.02-12 prohibits hardcoding list member references (e.g. IF ITEM(list) = list.member). Rule 2.02-14 states: avoid hardcoding using SELECT if possible — use a constants module and LOOKUP instead. Both rules aim to make models dynamic and maintainable."},
-
-{cat:"design",multi:false,
-q:"A model builder is designing a module for Dynamic Cell Access (DCA) drivers. The Planual recommends creating separate DCA Access Driver modules. What is the primary benefit of this approach?",
-opts:["It hides the DCA configuration from end users and other model builders", "It is required by the Anaplan engine for DCA to function correctly", "It reduces how many revision tags are needed when syncing with ALM", "DCA logic can be reused across many modules instead of being repeated"],
-ans:3,
-exp:"Planual rule 2.01-17 recommends separate Access Driver modules for DCA. This centralizes the logic, allows it to be reused across relevant module combinations, reduces duplication, and makes maintenance significantly easier when access rules change."},
-
-{cat:"design",multi:false,
-q:"When should a model builder add a dimension to a module that currently does not include it?",
-opts:["Whenever a formula returns an error — keep adding dimensions until the result is correct", "Whenever the module's current cell count is comfortably below 1 million", "Whenever another model builder or a user requests additional granularity", "Only when the business logic genuinely requires that dimension in the calculation"],
-ans:3,
-exp:"Planual rule 2.01-20: when creating a module, only include dimensions that the calculation actually needs. If a formula errors, review the calculation itself — don't add dimensions as a debugging shortcut. Check whether an existing module with the right dimensions already handles the calculation."},
-
-{cat:"alm",multi:false,
-q:"A model builder needs to make a structural change in Production urgently while the DEV model has unfinished, unreviewed changes from another builder. What is the safest approach?",
-opts:["Ask the other builder to finish quickly so all the changes sync together", "Create a revision tag in DEV with only the completed, reviewed changes and sync it", "Make the change directly in Production, because urgent situations override ALM protocol", "Build a separate temporary DEV model just for this urgent change and sync it"],
-ans:1,
-exp:"Revision tags capture the state of the DEV model at a specific point. The safest approach is to ensure the DEV model reaches a stable, reviewed state for the specific change needed, create a targeted revision tag, and sync it. This maintains ALM integrity without waiting for all ongoing work to complete."},
-
-{cat:"alm",multi:false,
-q:"What is the difference between Standard mode and Deployed mode in ALM?",
-opts:["Standard mode permits structural changes by authorized users; Deployed mode locks them", "Standard mode needs a revision tag for every change, but Deployed mode does not", "Standard mode is used for DEV models only; Deployed mode is used for UAT only", "Deployed mode syncs automatically from DEV, while Standard mode needs manual syncs"],
-ans:0,
-exp:"Standard mode allows workspace administrators and authorized users to make structural changes. Deployed mode locks structural changes from end users — only workspace administrators retain structural access. Production models should always be in Deployed mode to protect model integrity."},
-
-{cat:"alm",multi:true,
-q:"Which two of the following changes would require a revision tag to be created and synced before they appear in a Production model?",
-opts:["A planner edits cell values in an input module in Production", "A workspace admin changes a user's role assignment in Production", "A model builder adds a new line item to an existing module in DEV", "An end user runs an import action from a UX page in Production", "A model builder creates a brand-new list in the DEV model"],
-ans:[2, 4],
-exp:"Structural changes — adding line items, creating lists, modifying module properties — require revision tags to be deployed via ALM sync. Data changes (cell edits, import results) and administrative actions (role changes) are managed outside the ALM structural sync process."},
-
-{cat:"alm",multi:false,
-q:"A company runs a Bulk Copy of their DEV model to create a new UAT environment. What data will NOT be included in the Bulk Copy?",
-opts:["Production List member data", "Module formulas and line item definitions", "Module and line item names", "List structures and hierarchies"],
-ans:0,
-exp:"Bulk Copy copies the model structure — modules, lists, line items, formulas, and most data. However, Production Lists are excluded — their members are managed independently in each environment. This is a critical distinction for ALM-governed models where production member data must not be overwritten."},
-
-{cat:"alm",multi:false,
-q:"A model has been synchronized to Production, and an end user reports that a list they expect to see is empty in Production but has members in DEV. What is the most likely explanation?",
-opts:["The revision tag was created without including the list in its scope", "The sync failed silently, so the revision tag needs to be applied to Production again", "The user's Selective Access settings are hiding the list's members", "The list is a Production List, so its members live in Production, not DEV"],
-ans:3,
-exp:"Production Lists are lists whose membership is managed directly in Production. Their structure (existence and properties) comes from DEV via sync, but the actual members are not overwritten or populated by the sync process. Members must be added directly in Production."},
-
-{cat:"datamodel",multi:false,
-q:"A hierarchy has products at the top level, product families in the middle, and SKUs at the bottom. Some SKUs belong to more than one product family. How does Anaplan handle this?",
-opts:["Anaplan automatically creates composite nodes for any SKU that has several parents", "The hierarchy will raise an error during the build if duplicate parents are detected", "Each item can have one parent only, so many-to-many needs mapping modules or similar", "Anaplan supports many-to-many hierarchies natively, so SKUs can sit under several families"],
-ans:2,
-exp:"Anaplan lists are strict single-parent hierarchies — each member can have only one parent. Many-to-many relationships must be modeled using system modules with Boolean or lookup line items to represent the secondary relationships. This is a fundamental constraint to understand during data modeling."},
-
-{cat:"datamodel",multi:false,
-q:"A model uses native Time set to Monthly. A planning requirement needs weekly data for a specific 13-week period. What is the recommended approach?",
-opts:["Create a list of the 13 weeks and use it only in the modules that need weekly data", "Use PREVIOUS() to approximate the weekly values from the monthly figures", "Add a subsidiary view with a weekly filter applied to the monthly module", "Change the model's timescale to Weekly so the weekly requirement is met in every module"],
-ans:0,
-exp:"Changing the entire model timescale to Weekly would massively increase cell counts across all modules. The recommended approach is to create a custom week list used as a dimension only in the modules that need it — keeping the rest of the model at monthly granularity. This is a targeted, performance-conscious solution."},
-
-{cat:"datamodel",multi:true,
-q:"A model builder is deciding whether to use Versions for scenario planning or to build a custom version list. Which two statements correctly describe when native Versions is preferable?",
-opts:["When the scenarios need to be dimensioned against other custom lists", "When breakback functionality is needed on the scenario data", "When users compare Actual, Budget, and Forecast in a standard planning model", "When the number of scenarios is expected to grow beyond 100 over time", "When the scenario structure must change often without involving ALM"],
-ans:[1, 2],
-exp:"Native Versions supports breakback (write-back from summary to detail), is optimized by the Anaplan engine, and is the right choice for standard planning comparisons (Actual/Budget/Forecast). Custom version lists are more appropriate when the version structure changes frequently (avoiding structural ALM changes) or when complex version-specific dimensionality is needed."},
-
-{cat:"datamodel",multi:false,
-q:"A Transaction module contains 2 million numbered list members with 15 line items, some of which are text-formatted. Why is text format particularly costly in this scenario?",
-opts:["Text-formatted line items block the module from syncing through ALM revision tags", "Text line items cannot be used in formulas, so they have to be calculated separately", "Each text cell uses about 500 bytes regardless of content, far more than number cells", "Text-formatted line items cannot be dimensioned by numbered lists with millions of members"],
-ans:2,
-exp:"Text cells in Anaplan consume 500 bytes per cell — compared to 8 bytes for Number and 1 byte for Boolean. In a module with 2 million list members, a single text line item could consume approximately 1 GB of workspace. Text should be minimized, especially in large transactional modules."},
-
-{cat:"ux",multi:false,
-q:"A UX designer is building a landing page for a planning app. The page should show high-level KPIs, a summary chart, and links to detailed planning worksheets. Which page type is most appropriate?",
-opts:["Board — built for high-level summaries with cards and navigation links", "A saved module view promoted directly to the app's home page", "Worksheet — it can hold KPI cards and charts in the Additional Insights panel", "Report — best for formatted layouts with several visual elements"],
-ans:0,
-exp:"Boards are designed exactly for this scenario: high-level summaries combining KPI cards, charts, and navigation links to deeper content. They are the standard landing-page pattern in Anaplan UX design. Worksheets are for detailed data entry; Reports are read-only presentation pages."},
-
-{cat:"ux",multi:true,
-q:"According to Anaplan UX best practices, which two design principles should guide the layout of a planning board for end users?",
-opts:["Use as many different chart types as possible to make pages visually rich", "Place the most frequently used action buttons at the bottom of the page", "Put all the available data on a single page to minimize navigation clicks", "Use progressive disclosure: summary KPIs first, with links to detailed worksheets", "Apply consistent color coding for the same metrics across all pages in the app"],
-ans:[3, 4],
-exp:"Progressive disclosure (showing high-level information first, with drill-down to detail) and consistency (same colors for the same metrics across pages) are two of the five core UX design principles from Anaplan's OEG guidelines. Overloading a single page or using inconsistent visual language reduces usability."},
-
-{cat:"ux",multi:false,
-q:"A page builder has created a board with context selectors at the top. A user changes the Region selector but the data on one card does not update. What is the most likely cause?",
-opts:["The board is in Standard mode, where context selectors are disabled", "The user's role does not allow changing the Region selector", "The card's source module does not have Region as a dimension", "Context selectors only work on Worksheet pages, not on Boards"],
-ans:2,
-exp:"Context selectors filter data based on a list dimension present in the source module. If a card's source module does not include the Region dimension, changing the Region selector has no effect on that card's data — it will display the same values regardless of the selector state."},
-
-{cat:"ux",multi:false,
-q:"A model builder is asked to make an Anaplan planning app mobile-friendly. Which of the following is the most important design consideration?",
-opts:["Avoid large grid cards on boards, as mobile screens cannot show wide grids well", "Use only Boolean line items on mobile-facing pages to reduce data volume", "Use Report pages for all mobile users, since reports render best on small screens", "Mobile users cannot access Anaplan UX and must use the legacy Classic interface"],
-ans:0,
-exp:"Anaplan's UX design guidelines specifically note that large grids are problematic on mobile devices. For mobile-first design, boards with KPI cards, charts, and focused small grids are preferred. The principle is to think mobile-first if users will regularly access via phone — prioritizing compact, high-value views over dense data grids."},
-
-{cat:"taw",multi:false,
-q:"A sprint review reveals that several user stories were marked complete by the model builder but the business stakeholder considers them incomplete. What TAW process failure does this most likely indicate?",
-opts:["The Foundation phase was too short to agree the definition of done", "The user stories were too long and should have been split into smaller pieces", "Sprint reviews lacked frequent, genuine participation from the business", "The model builder did not follow the agreed naming conventions for line items"],
-ans:2,
-exp:"Sprint reviews exist specifically to validate completion with the business stakeholder — not just the technical team. If the business considers stories incomplete at review, it indicates either insufficient stakeholder engagement during the sprint or that the \"definition of done\" was not agreed upfront. This is a TAW Agile process failure."},
-
-{cat:"taw",multi:false,
-q:"Which TAW cornerstone encompasses the plan to ensure end users actually adopt the Anaplan solution and change their working behavior?",
-opts:["Model — the quality of the technical build is what drives adoption", "Data — accurate data builds user trust, and trust drives adoption", "Deployment — covers change management, training, and adoption planning", "Process — the business process must first be redesigned around Anaplan"],
-ans:2,
-exp:"The Deployment cornerstone addresses how the solution lands with the organization: change management, end-user training, communication, documentation, and post-go-live support. A technically excellent model can fail if the Deployment cornerstone is neglected."},
-
-{cat:"taw",multi:true,
-q:"A partner delivery team is preparing for the Foundation phase of an Anaplan implementation. Which two activities should they complete during this phase?",
-opts:["Running sprint retrospectives to improve team velocity", "Writing and prioritizing user stories together with the business", "Deploying the completed model into the Production environment", "Conducting end-user training sessions for the new application", "Finalizing the project plan and allocating project resources"],
-ans:[1, 4],
-exp:"Foundation sets the stage: it includes project planning (resource and timeline alignment) and design/process planning with sprint preparation — writing and prioritizing user stories is a core Foundation deliverable. End-user training and Production deployment belong to the Deployment phase; retrospectives happen during Implementation sprints."},
-
-{cat:"taw",multi:false,
-q:"In TAW, what is the primary purpose of the daily stand-up during the Implementation phase?",
-opts:["To review and re-prioritize the full product backlog with the product owner each day", "To let each member share progress, raise blockers, and align on the day's priorities", "To run a short mini-UAT session with the business stakeholder on finished stories", "To formally report the sprint's progress to the project sponsor and steering group"],
-ans:1,
-exp:"The daily stand-up in TAW (following Agile Scrum principles) is a brief synchronization — each team member covers what they did, what they will do, and any blockers. It is a team coordination tool, not a formal reporting mechanism or a stakeholder review session."},
-
-{cat:"datamgmt",multi:false,
-q:"A model builder has set up a file-based import scheduled to run nightly via CloudWorks. The source system team changes the column order in the export file without notifying the Anaplan team. What will most likely happen on the next scheduled run?",
-opts:["CloudWorks will pause the schedule and wait for manual confirmation", "CloudWorks will automatically detect and adapt to the new column order", "The import will succeed but send an alert email to the workspace admin", "The import will fail or load incorrect data due to the mapping mismatch"],
-ans:3,
-exp:"File-based imports in Anaplan use explicit column mappings. If the source file's column order or names change without the import definition being updated, the import will either fail with a mapping error or — more dangerously — load data into incorrect columns silently. This is a common integration failure mode requiring coordination with source system teams."},
-
-{cat:"datamgmt",multi:false,
-q:"What is the difference between a file-based import and a model-to-model import in Anaplan?",
-opts:["Model-to-model imports can be run only by workspace administrators and model owners", "File-based imports are faster to run, while model-to-model imports are more accurate overall", "Model-to-model imports do not need any mapping configuration to be set up first", "Private/shared settings do not apply to model-to-model imports; permissions govern access"],
-ans:3,
-exp:"The private/shared file source setting only applies to file-based imports. For model-to-model imports, the import source is another Anaplan model — access is governed by workspace permissions and the import action configuration, not by the private/shared file setting."},
-
-{cat:"datamgmt",multi:true,
-q:"A solutions architect is recommending whether to use a Data Hub or direct model-to-model imports between spoke models. Which two benefits of a Data Hub support the recommendation?",
-opts:["A Data Hub removes the need for any imports into the spoke models", "A Data Hub lets spoke models skip ALM revision tags for structural changes", "One update in the hub propagates to every connected spoke model", "Master data is validated and cleansed once before it reaches the spokes", "Spoke models can read the hub's data in real time without scheduled imports"],
-ans:[2, 3],
-exp:"The two strongest architectural benefits of a Data Hub are: (1) data validation — master data is cleansed in one place before being distributed, preventing bad data from propagating across models; (2) single-source distribution — updating the hub once automatically reaches all downstream spoke models via their import actions, rather than requiring individual updates to each model."},
-
-{cat:"datamgmt",multi:false,
-q:"A workspace admin needs to run an import to update the Users list in a model. The import file is shared with \"Everyone.\" Which users can run this import?",
-opts:["Any user with access to the model, because the file is shared with Everyone", "Only the user who originally created the import, whatever its sharing", "Any user with a Planner role or above, since the source is shared", "Only workspace administrators, whatever the source's sharing setting"],
-ans:3,
-exp:"Imports to Versions and Users are restricted to workspace administrators only — regardless of how the import file is shared. Even if the file is shared with \"Everyone,\" only workspace admins can execute imports that target the Versions or Users system lists."},
-
-{cat:"impl",multi:false,
-q:"An Anaplan implementation has reached the Testing phase but the business stakeholder is not available for UAT for three weeks. What should the delivery team do?",
-opts:["Use the three weeks to keep building extra features that were not in the original scope", "Run internal testing, fix known defects, and prepare UAT documentation for the business", "Move on to Deployment, because the model builder can complete UAT without the business", "Escalate to the sponsor and restart scoping from Pre-Release once they return"],
-ans:1,
-exp:"Three weeks without stakeholder availability is an opportunity, not a blocker. The delivery team should conduct thorough internal testing, resolve known issues, prepare test scripts and data for UAT, and document the model so the business stakeholder can engage productively as soon as they are available."},
-
-{cat:"impl",multi:false,
-q:"After go-live, several users report that the Anaplan model produces results that differ from their Excel calculations. Investigations show the Anaplan formulas are correct. What is the most likely root cause?",
-opts:["The Anaplan engine contains a calculation error in the current release", "The model builder used the wrong summary method across all of the modules", "The model must be redeployed from DEV to fix an underlying structural issue in the model", "The Excel models had hidden errors that the stricter Anaplan model now exposes"],
-ans:3,
-exp:"When Anaplan produces different results from legacy Excel, the Anaplan model is frequently correct and the Excel model is the one with errors, manual overrides, or inconsistent logic. This is a common post-go-live discovery. The right response is to validate the business logic, not to modify Anaplan to match Excel."},
-
-{cat:"impl",multi:true,
-q:"A solutions architect is conducting a post-implementation review six months after go-live. Which two findings would indicate a successful implementation?",
-opts:["The model builder keeps adding unplanned features throughout the six months", "End users trust the data and the process runs within the agreed timeframes", "The model has required no structural changes at all since the go-live date", "Stakeholders are using Anaplan data in executive reporting and decision-making", "Most planning activities have moved back to the legacy Excel process"],
-ans:[1, 3],
-exp:"A successful implementation is measured by adoption and business value: users trust the data and the process works as designed (on time, accurate), and the output is actually used in decision-making by stakeholders. Returning to Excel or continuous unplanned feature additions both signal problems."},
-
-{cat:"impl",multi:false,
-q:"A client requests that a complex custom security model be built before the core planning functionality is developed. How should the solutions architect respond?",
-opts:["Build the core planning model first and add security in a later sprint, once the data is stable", "Agree to build security first, because security must always be implemented before anything else is built", "Refuse, because security configuration is not part of a standard Anaplan implementation", "Escalate the request to Anaplan Support and wait for guidance on how to sequence the work"],
-ans:0,
-exp:"Security models (Selective Access, DCA, roles) depend on the data structure being stable. Building security before the model structure is finalized leads to rework as the structure changes. TAW best practice is to build core functionality first, then implement and test security once the model structure is established."},
-
-{cat:"security",multi:false,
-q:"A user with a Planner role can see all modules and data they should not have access to. The workspace admin checks the role configuration and it appears correct. What should they investigate next?",
-opts:["Whether the user has a second, duplicate account in the workspace", "Whether the model has too many line items for role enforcement to work", "Whether the model is in Standard mode or Deployed mode, which affects access", "Whether Selective Access is configured and applied to the relevant lists"],
-ans:3,
-exp:"If role configuration appears correct but a user sees more data than expected, the likely gap is Selective Access — it may not have been configured or the Boolean list item controlling access may not be set correctly for that user. Role-based access controls what actions a user can perform; Selective Access controls which list members they can see."},
-
-{cat:"security",multi:false,
-q:"A workspace admin wants to restrict certain planners from editing cells in a specific time period (e.g., locked prior periods) while allowing them to edit current and future periods. Which security mechanism achieves this?",
-opts:["Placing the modules that hold the locked prior periods into an Archived mode to stop edits", "Selective Access applied to the Time dimension so prior periods are hidden", "Dynamic Cell Access (DCA) with a Boolean line item comparing each period to a lock date", "Role-based access, setting the prior-period modules to read-only for Planner roles"],
-ans:2,
-exp:"DCA is the right tool for cell-level access control based on conditional logic. A Boolean line item in a System module can evaluate whether a time period is before a lock date and return TRUE (locked) or FALSE (editable), driving DCA to lock prior-period cells dynamically as time advances."},
-
-{cat:"security",multi:false,
-q:"An organization uses Okta as their identity provider. They want Anaplan user accounts to be automatically created when a new employee is provisioned in Okta and removed when they leave. Which Anaplan capability enables this?",
-opts:["Anaplan Connect scripts that sync the Users list from Okta every night", "CloudWorks integration using an Okta connector to create and remove accounts", "SCIM API with SSO, letting Okta provision and de-provision Anaplan users", "Audit API webhooks that create or remove Anaplan users whenever Okta events occur"],
-ans:2,
-exp:"SCIM (System for Cross-domain Identity Management) API combined with SSO configuration allows identity providers like Okta to automate the full user lifecycle in Anaplan — provisioning new users, updating attributes, and de-provisioning departing employees — without manual workspace admin intervention."},
-
-{cat:"ado",multi:false,
-q:"An ADO flow needs to combine customer data from two sources: a CRM export and an ERP extract. The team wants all customers from the CRM, with additional columns from the ERP added where a match exists. Which join type should they configure?",
-opts:["Inner join — returns only customers that exist in both CRM and ERP", "Lookup join — keeps all CRM rows and adds ERP columns for matches", "Full outer join — keeps all rows from both CRM and ERP, matched or not", "Union — stacks the CRM and ERP datasets into one combined list"],
-ans:1,
-exp:"A lookup join keeps all rows from the primary dataset (CRM) and adds columns from the secondary dataset (ERP) where a matching key is found. Where no ERP match exists, the added columns are blank. This is the correct pattern when the primary source is authoritative and the secondary source enriches it."},
-
-{cat:"ado",multi:false,
-q:"The Map pillar in ADO provides which capability?",
-opts:["It maps source columns to Anaplan line items during the import configuration step", "It gives a visual overview of data relationships, connections, and flows in ADO", "It builds mapping tables that link list members across different models", "It sets the column mapping rules applied in each transformation step"],
-ans:1,
-exp:"The Map pillar in ADO is a navigation and visualization tool — it shows how data sources, transformation steps, and destinations are connected within the ADO environment. It is not a configuration tool but a governance and navigation aid for understanding and managing complex data flows."},
-
-{cat:"ado",multi:false,
-q:"A data engineer wants to combine two datasets that have the same column structure, keeping all rows from both including any duplicates. Which ADO operation should they use?",
-opts:["Inner join on a shared key", "Union All, keeping duplicate rows", "Full outer join on all columns", "Lookup join on a shared key"],
-ans:1,
-exp:"When combining datasets with the same column structure and wanting to retain all rows including duplicates, a Union All is appropriate. A standard Union deduplicates rows. Understanding the distinction between Union and Union All is important when source data may legitimately contain identical rows that should be preserved."},
-
-{cat:"workflow",multi:false,
-q:"A forecast process requires that if a regional manager's submission is rejected by the CFO, the workflow returns the task to that manager for revision rather than ending the process. Which Workflow feature enables this?",
-opts:["Branching in Workflow Advanced: the Decision task routes to approved or returned for revision", "A sequential task chain that ends with a notification step to the regional manager and CFO", "A Process action that resets the submission status flag whenever the CFO rejects a plan", "A separate Workflow template that handles all rejections independently of the main workflow"],
-ans:0,
-exp:"Branching logic in Workflow Advanced allows a Decision task (the CFO's approval/rejection) to route the workflow down different paths: one for approval (advancing to consolidation) and one for rejection (returning the task to the regional manager for revision). This is a key differentiator of Workflow Advanced over standard Workflow."},
-
-{cat:"workflow",multi:false,
-q:"A Workflow template has been created but users report they are not receiving notifications when tasks are assigned to them. What should the administrator investigate first?",
-opts:["Whether the user's role allows receiving Workflow notifications on assigned tasks", "Whether the model is in Deployed mode, which blocks Workflow notifications from being sent", "Whether the workspace has reached its maximum number of active Workflow templates", "Whether the template has notification steps and users have notifications enabled"],
-ans:3,
-exp:"Workflow notifications require two things: notification steps must be explicitly included in the workflow template design, and users must have appropriate notification preferences enabled (in-app, email, or mobile push). Missing either element will result in users not receiving notifications even when tasks are assigned to them."},
-
-{cat:"actions",multi:false,
-q:"A model builder has created a Process that runs four actions in sequence. The third action is a delete action that clears a staging module before an import refills it. The import (fourth action) consistently shows stale data. What is the most likely cause?",
-opts:["The Process must be run twice in a row before the import results are fully reflected in the module", "The delete action clears the wrong module, so the import refills the untouched original", "Delete actions are not allowed to come before import actions in the same Process", "The staging module has to be an Output module before delete actions can clear it"],
-ans:1,
-exp:"If stale data persists after a delete-then-import sequence, the most likely cause is a module targeting mismatch — the delete action is clearing a different module or a different view than the import is writing to. Careful verification of the exact module and filter scope of both actions is the correct diagnostic step."},
-
-{cat:"apps",multi:false,
-q:"A business unit wants to reuse an existing Anaplan planning page for a new business process that uses a different source model with an identical structure. What UX feature enables this without rebuilding the page from scratch?",
-opts:["Export the page as a template and import that template into the new model", "Use the Change Source Model feature to point the existing page at the new model", "Duplicate the page, then manually re-point every card at the new model", "Create a new app that links to the original page with a different context selector"],
-ans:1,
-exp:"Anaplan's Change Source Model capability (available with Professional/Enterprise entitlement) allows a page to be associated with multiple models and the active source model to be switched. This enables page reuse across models with the same structure — avoiding the cost of rebuilding and maintaining duplicate pages."},
-
-];
-
+// ─── STATE ──────────────────────────────────────────────────────────────────
+const STORE_KEY = 'sa_exam_history_v3_scenario_technical';
 let history = [];
 let currentExam = null;
 let currentExamId = null;
@@ -762,21 +1435,39 @@ let answered = false;
 let multiSelected = [];
 let sessionResults = [];
 
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Fisher-Yates shuffle of each question's options; the answer index is remapped so grading stays correct.
+function shuffleQuestion(q) {
+  const order = q.opts.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  const opts = order.map(i => q.opts[i]);
+  const remap = old => order.indexOf(old);
+  const ans = q.multi ? q.ans.map(remap).sort((a, b) => a - b) : remap(q.ans);
+  return Object.assign({}, q, { opts, ans });
+}
+
 // ─── STORAGE ─────────────────────────────────────────────────────────────────
 function saveHistory() {
-  try { localStorage.setItem('sa_exam_history_v2', JSON.stringify(history)); } catch(e) {}
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(history)); } catch (e) {}
 }
 function loadHistory() {
   try {
-    const d = localStorage.getItem('sa_exam_history_v2');
+    const d = localStorage.getItem(STORE_KEY);
     if (d) history = JSON.parse(d);
-  } catch(e) {}
+  } catch (e) {}
 }
 
 // ─── SCREENS ─────────────────────────────────────────────────────────────────
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
+  window.scrollTo(0, 0);
 }
 function showHome() {
   clearInterval(timerInterval);
@@ -785,21 +1476,21 @@ function showHome() {
 }
 
 // ─── HOME ────────────────────────────────────────────────────────────────────
+function pctClass(p) { return p >= 75 ? 'badge-success' : p >= 60 ? 'badge-warning' : 'badge-danger'; }
+function pctColor(p) { return p >= 75 ? '#15803d' : p >= 60 ? '#d97706' : '#dc2626'; }
+
 function buildHome() {
-  const exams = [
-    { id: 'exam1', label: 'Exam 1', questions: EXAM1, desc: '45 questions · all categories' },
-    { id: 'exam2', label: 'Exam 2', questions: EXAM2, desc: '45 questions · all categories' }
-  ];
   const cards = document.getElementById('exam-cards');
-  cards.innerHTML = exams.map(e => {
-    const sessions = history.filter(h => h.examId === e.id);
+  cards.innerHTML = Object.entries(EXAMS).map(([id, e]) => {
+    const sessions = history.filter(h => h.examId === id);
     const best = sessions.length ? Math.max(...sessions.map(s => s.pct)) : null;
     const last = sessions.length ? sessions[sessions.length - 1] : null;
-    const completedClass = sessions.length ? ' completed' : '';
-    const lastStr = last ? `<div style="font-size:12px;color:var(--text3);margin-top:4px">Last: ${last.pct}% · ${last.date}</div>` : '<div style="font-size:12px;color:var(--text3);margin-top:4px">Not yet attempted</div>';
-    const bestStr = best !== null ? `<span class="badge ${best>=75?'badge-success':'badge-warning'}" style="margin-left:8px">Best: ${best}%</span>` : '';
-    return `<div class="exam-card${completedClass}" onclick="startExam('${e.id}')">
-      <h3>${e.label} ${bestStr}</h3>
+    const lastStr = last
+      ? `<div style="font-size:12px;color:var(--text3);margin-top:4px">Last: ${last.pct}% · ${esc(last.date)}</div>`
+      : '<div style="font-size:12px;color:var(--text3);margin-top:4px">Not yet attempted</div>';
+    const bestStr = best !== null ? `<span class="badge ${best >= 75 ? 'badge-success' : 'badge-warning'}" style="margin-left:8px">Best: ${best}%</span>` : '';
+    return `<div class="exam-card${sessions.length ? ' completed' : ''}" onclick="startExam('${id}')">
+      <h3>${e.label}: ${e.title} ${bestStr}</h3>
       <div style="font-size:13px;color:var(--text2)">${e.desc}</div>
       ${lastStr}
     </div>`;
@@ -813,17 +1504,15 @@ function buildHome() {
   document.getElementById('home-progress-empty').style.display = 'none';
   document.getElementById('home-progress-content').style.display = 'block';
   document.getElementById('hp-sessions').textContent = history.length;
-  const avg = Math.round(history.reduce((a,s) => a + s.pct, 0) / history.length);
+  const avg = Math.round(history.reduce((a, s) => a + s.pct, 0) / history.length);
   const best = Math.max(...history.map(s => s.pct));
   document.getElementById('hp-avg').textContent = avg + '%';
   document.getElementById('hp-best').textContent = best + '%';
 
-  const recent = history.slice(-10);
-  document.getElementById('hp-trend').innerHTML = recent.map(s => {
+  document.getElementById('hp-trend').innerHTML = history.slice(-10).map(s => {
     const h = Math.max(6, Math.round(s.pct * 0.6));
-    const color = s.pct >= 75 ? '#15803d' : s.pct >= 60 ? '#d97706' : '#dc2626';
     return `<div class="trend-col">
-      <div class="trend-bar" style="height:${h}px;background:${color}"></div>
+      <div class="trend-bar" style="height:${h}px;background:${pctColor(s.pct)}"></div>
       <div class="trend-lbl">${s.pct}%</div>
     </div>`;
   }).join('');
@@ -840,39 +1529,23 @@ function buildHome() {
     const d = catTotals[id];
     if (!d || d.total === 0) return '';
     const p = Math.round(d.correct / d.total * 100);
-    const color = p >= 75 ? '#15803d' : p >= 60 ? '#d97706' : '#dc2626';
     return `<div style="margin-bottom:10px">
       <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px">
         <span>${c.label}</span>
-        <span class="badge ${p>=75?'badge-success':p>=60?'badge-warning':'badge-danger'}">${p}% (${d.correct}/${d.total})</span>
+        <span class="badge ${pctClass(p)}">${p}% (${d.correct}/${d.total})</span>
       </div>
-      <div class="progress-wrap"><div class="progress-fill" style="width:${p}%;background:${color}"></div></div>
+      <div class="progress-wrap"><div class="progress-fill" style="width:${p}%;background:${pctColor(p)}"></div></div>
     </div>`;
   }).join('');
-}
-
-// Randomizes the option order each time an exam starts and remaps the correct answer(s)
-function shuffleQuestion(q) {
-  const order = q.opts.map((_, i) => i);
-  for (let i = order.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [order[i], order[j]] = [order[j], order[i]];
-  }
-  const opts = order.map(i => q.opts[i]);
-  if (q.multi) {
-    const ans = q.ans.map(a => order.indexOf(a)).sort((a, b) => a - b);
-    return Object.assign({}, q, { opts, ans });
-  }
-  return Object.assign({}, q, { opts, ans: order.indexOf(q.ans) });
 }
 
 // ─── EXAM ────────────────────────────────────────────────────────────────────
 function startExam(examId) {
   currentExamId = examId;
-  currentExam = (examId === 'exam1' ? EXAM1 : EXAM2).map(shuffleQuestion);
+  currentExam = EXAMS[examId].questions.map(shuffleQuestion);
   currentIdx = 0; correctCount = 0; answered = false; multiSelected = [];
   sessionResults = [];
-  document.getElementById('exam-label').textContent = examId === 'exam1' ? 'Exam 1' : 'Exam 2';
+  document.getElementById('exam-label').textContent = EXAMS[examId].label + ': ' + EXAMS[examId].title;
   document.getElementById('q-tot').textContent = currentExam.length;
   timeLeft = 180 * 60;
   startTimer();
@@ -894,8 +1567,7 @@ function updateTimer() {
   const h = Math.floor(timeLeft / 3600);
   const m = Math.floor((timeLeft % 3600) / 60);
   const s = timeLeft % 60;
-  document.getElementById('exam-timer').textContent =
-    `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  document.getElementById('exam-timer').textContent = `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
 function renderQ() {
@@ -904,7 +1576,7 @@ function renderQ() {
   const total = currentExam.length;
   document.getElementById('q-num').textContent = currentIdx + 1;
   document.getElementById('exam-bar').style.width = Math.round(currentIdx / total * 100) + '%';
-  document.getElementById('q-cat-label').textContent = CATS[q.cat]?.label || q.cat;
+  document.getElementById('q-cat-label').textContent = (CATS[q.cat] && CATS[q.cat].label) || q.cat;
   document.getElementById('q-text').textContent = q.q;
   document.getElementById('q-feedback').innerHTML = '';
   document.getElementById('btn-next').style.display = 'none';
@@ -913,9 +1585,8 @@ function renderQ() {
   document.getElementById('multi-error').style.display = 'none';
   document.getElementById('live-score').textContent = currentIdx > 0 ? `${correctCount} / ${currentIdx}` : '—';
 
-  const opts = document.getElementById('q-opts');
-  opts.innerHTML = q.opts.map((o, i) =>
-    `<button class="answer-btn" id="opt-${i}" onclick="${q.multi ? `toggleMulti(${i})` : `selectAnswer(${i})`}">${String.fromCharCode(65+i)}. ${o}</button>`
+  document.getElementById('q-opts').innerHTML = q.opts.map((o, i) =>
+    `<button class="answer-btn" id="opt-${i}" onclick="${q.multi ? `toggleMulti(${i})` : `selectAnswer(${i})`}">${String.fromCharCode(65 + i)}. ${esc(o)}</button>`
   ).join('');
 }
 
@@ -938,15 +1609,14 @@ function submitMulti() {
     return;
   }
   const q = currentExam[currentIdx];
-  const correct = multiSelected.length === q.ans.length && q.ans.every(a => multiSelected.includes(a));
-  resolveAnswer(multiSelected, correct, q);
+  const correct = q.ans.every(a => multiSelected.includes(a));
+  resolveAnswer(multiSelected.slice(), correct, q);
 }
 
 function selectAnswer(idx) {
   if (answered) return;
   const q = currentExam[currentIdx];
-  const correct = idx === q.ans;
-  resolveAnswer([idx], correct, q);
+  resolveAnswer([idx], idx === q.ans, q);
 }
 
 function resolveAnswer(selectedIdxs, correct, q) {
@@ -958,11 +1628,11 @@ function resolveAnswer(selectedIdxs, correct, q) {
     btn.disabled = true;
     btn.classList.remove('selected-multi');
     if (ansArr.includes(i)) btn.classList.add('correct');
-    else if (selectedIdxs.includes(i) && !ansArr.includes(i)) btn.classList.add('wrong');
+    else if (selectedIdxs.includes(i)) btn.classList.add('wrong');
   });
 
   document.getElementById('q-feedback').innerHTML = `<div class="feedback ${correct ? 'feedback-correct' : 'feedback-wrong'}">
-    <strong>${correct ? '✓ Correct' : '✗ Incorrect'}</strong> — ${q.exp}
+    <strong>${correct ? '✓ Correct' : '✗ Incorrect'}</strong> — ${esc(q.exp)}
   </div>`;
 
   document.getElementById('btn-submit-multi').style.display = 'none';
@@ -980,10 +1650,7 @@ function nextQ() {
 }
 
 function confirmEnd() {
-  if (confirm('End exam early and see results?')) {
-    currentExam = currentExam.slice(0, answered ? currentIdx + 1 : currentIdx);
-    finishExam();
-  }
+  if (confirm('End exam early and see results?')) finishExam();
 }
 
 // ─── RESULTS ─────────────────────────────────────────────────────────────────
@@ -998,7 +1665,6 @@ function finishExam() {
   document.getElementById('r-pass').textContent = pass ? '✓ Pass' : '✗ Below passing';
   document.getElementById('r-pass').style.color = pass ? 'var(--success)' : 'var(--danger)';
 
-  // Category breakdown
   const catStats = {};
   sessionResults.forEach(r => {
     const c = r.q.cat;
@@ -1009,40 +1675,35 @@ function finishExam() {
 
   document.getElementById('r-cats').innerHTML = Object.entries(catStats).map(([cat, s]) => {
     const p = Math.round(s.correct / s.total * 100);
-    const color = p >= 75 ? '#15803d' : p >= 60 ? '#d97706' : '#dc2626';
     return `<div style="margin-bottom:12px">
       <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px">
-        <span>${CATS[cat]?.label || cat}</span>
-        <span class="badge ${p>=75?'badge-success':p>=60?'badge-warning':'badge-danger'}">${p}% (${s.correct}/${s.total})</span>
+        <span>${(CATS[cat] && CATS[cat].label) || cat}</span>
+        <span class="badge ${pctClass(p)}">${p}% (${s.correct}/${s.total})</span>
       </div>
-      <div class="progress-wrap"><div class="progress-fill" style="width:${p}%;background:${color}"></div></div>
+      <div class="progress-wrap"><div class="progress-fill" style="width:${p}%;background:${pctColor(p)}"></div></div>
     </div>`;
   }).join('');
 
-  // Missed questions
   const missed = sessionResults.filter(r => !r.correct);
   if (missed.length === 0) {
     document.getElementById('r-missed-card').style.display = 'none';
   } else {
     document.getElementById('r-missed-card').style.display = 'block';
-    document.getElementById('r-missed').innerHTML = missed.map((r, i) => {
+    document.getElementById('r-missed').innerHTML = missed.map(r => {
       const q = r.q;
       const ansArr = q.multi ? q.ans : [q.ans];
-      const correctLabels = ansArr.map(a => `${String.fromCharCode(65+a)}. ${q.opts[a]}`).join(' and ');
-      const selectedLabels = r.selectedIdxs.map(a => `${String.fromCharCode(65+a)}. ${q.opts[a]}`).join(' and ');
+      const label = a => `${String.fromCharCode(65 + a)}. ${esc(q.opts[a])}`;
       return `<div class="missed-item">
-        <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">${CATS[q.cat]?.label || q.cat}</div>
-        <div class="missed-q">${q.q}</div>
-        <div class="missed-ans" style="color:var(--danger)">Your answer: ${selectedLabels}</div>
-        <div class="missed-ans" style="color:var(--success)">Correct answer: ${correctLabels}</div>
-        <div class="missed-exp">${q.exp}</div>
+        <div style="font-size:11px;font-weight:600;color:var(--text3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">${(CATS[q.cat] && CATS[q.cat].label) || q.cat}</div>
+        <div class="missed-q">${esc(q.q)}</div>
+        <div class="missed-ans" style="color:var(--danger)">Your answer: ${r.selectedIdxs.map(label).join(' and ')}</div>
+        <div class="missed-ans" style="color:var(--success)">Correct answer: ${ansArr.map(label).join(' and ')}</div>
+        <div class="missed-exp">${esc(q.exp)}</div>
       </div>`;
     }).join('');
   }
 
-  // Study resources — show all categories tested, emphasize weak ones
-  const weakCats = Object.entries(catStats)
-    .sort((a, b) => (a[1].correct/a[1].total) - (b[1].correct/b[1].total));
+  const weakCats = Object.entries(catStats).sort((a, b) => (a[1].correct / a[1].total) - (b[1].correct / b[1].total));
   document.getElementById('r-resources').innerHTML = weakCats.map(([cat, s]) => {
     const p = Math.round(s.correct / s.total * 100);
     const c = CATS[cat];
@@ -1050,23 +1711,21 @@ function finishExam() {
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
       <div>
         <div style="font-size:13px;font-weight:500;color:var(--text)">${c.label}</div>
-        <a href="${c.url}" target="_blank" class="study-link">Study on Anapedia / Community ↗</a>
+        <a href="${c.url}" target="_blank" rel="noopener" class="study-link">Study on Anaplan Planual / Anapedia / Community ↗</a>
       </div>
-      <span class="badge ${p>=75?'badge-success':p>=60?'badge-warning':'badge-danger'}">${p}%</span>
+      <span class="badge ${pctClass(p)}">${p}%</span>
     </div>`;
   }).join('');
 
-  // Save to history
-  const session = {
+  history.push({
     examId: currentExamId,
     date: new Date().toLocaleDateString(),
     score: correctCount,
     total,
     pct,
     pass,
-    cats: Object.fromEntries(Object.entries(catStats).map(([k,v]) => [k, { correct: v.correct, total: v.total }]))
-  };
-  history.push(session);
+    cats: Object.fromEntries(Object.entries(catStats).map(([k, v]) => [k, { correct: v.correct, total: v.total }]))
+  });
   saveHistory();
   showScreen('results');
 }
